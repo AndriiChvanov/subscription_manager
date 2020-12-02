@@ -58,6 +58,10 @@
 		"*js": [
 			"npm run lint:fix",
 			"git add"
+		],
+		"*css": [
+			"npm run lint:fix",
+			"git add"
 		]
 	}
 }
