@@ -1,0 +1,24 @@
+
+.input-large{
+	background-color: #EBEDF0;
+	border: none;
+	max-width: 309px;
+	min-height: 50.37px;
+	border-radius: 18px;
+}
+.input-small{
+	background-color: #EBEDF0;
+	border: none;
+	min-width: 143px;
+	min-height: 50.37px;
+	border-radius: 18px;
+}
+.pl-hold::placeholder{
+	font-family: "Arial", sans-serif;
+	font-size: 14px;
+	line-height: 34px;
+	letter-spacing: 0.47;
+	text-align: left;
+	color: #77869e;
+	padding-left: 28px;
+}
