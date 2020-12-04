@@ -1,5 +1,5 @@
 import "./UiContainer.css";
 
 export function UiContainer(props) {
-	return <div className='container' {...props}>{props.children}</div>;
+	return <div className='ui-container' {...props}>{props.children}</div>;
 }

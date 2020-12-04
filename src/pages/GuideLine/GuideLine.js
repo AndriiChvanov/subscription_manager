@@ -3,9 +3,11 @@ import "./GuideLine.css";
 import { UiButton } from "@components/ui/UiButton";
 import { UiInput } from "@components/ui/UiInput";
 import { UiSelect } from "@components/ui/UiSelect";
+import { UiOption } from "@components/ui/UiOption";
 import { UiContainer } from "@components/ui/UiContainer";
 import { UiLabel } from "@components/ui/UiLabel";
 import { UiDisplay } from "@components/ui/UiDisplay";
+import { RightCircleFilled } from "@ant-design/icons";
 
 const api = ["Every 1 Month(s)", "Every 3 Month(s)", "Every 6 Month(s)"];
 
@@ -23,12 +25,10 @@ export function GuideLine() {
 							className='input-large pl-hold'
 						/>
 					</UiLabel>
-
 					<UiLabel>
 						Amount
 						<UiInput placeholder='₦' className='input-large pl-hold' />
 					</UiLabel>
-
 					<UiDisplay
 						style={{ display: "flex", justifyContent: "space-between" }}>
 						<UiLabel>
@@ -39,7 +39,6 @@ export function GuideLine() {
 								style={{ marginLeft: "-11px" }}
 							/>
 						</UiLabel>
-
 						<UiLabel>
 							Due Date
 							<UiInput
@@ -49,12 +48,16 @@ export function GuideLine() {
 							/>
 						</UiLabel>
 					</UiDisplay>
-
 					<UiLabel>
-						Billing Cycle<UiSelect selected={api}></UiSelect>
+						Billing Cycle
+						<UiSelect selected={api}>
+							<UiOption />
+						</UiSelect>
 					</UiLabel>
-
-					<UiButton style={{ marginTop: "20px" }}>Continue</UiButton>
+					<UiButton style={{ marginTop: "20px" }}>
+						Continue{" "}
+						<RightCircleFilled style={{ color: "#FFFFFF", fontSize: "32px" }} />
+					</UiButton>
 				</UiContainer>
 			</div>
 		</div>

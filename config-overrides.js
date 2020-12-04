@@ -4,7 +4,8 @@ module.exports = function override(config) {
 	alias({
 		"@components": "src/components",
 		"@pages": "src/pages",
-		"@images": "../src/images",
+		"@bgImages": "src/assets/images",
+		"@helpers": "src/helpers",
 	})(config);
 
 	return config;

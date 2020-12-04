@@ -1,5 +1,5 @@
-.signup{
-	background-image: url("../../images/background.png");
+.signup-page{
+	background-image: url("../../assets/images/background.png");
 	background-repeat: no-repeat;
 	object-fit: contain;
 	min-width: 375px;
