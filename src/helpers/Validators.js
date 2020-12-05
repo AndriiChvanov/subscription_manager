@@ -6,8 +6,8 @@ const validationSchemaLogin = yup.object().shape({
 		.string()
 		.required("Please Enter your password")
 		.matches(
-			"^^(?=.*?[A-Z])(?=.*?[0-9]).{4,}$",
-			"Minimum 4 characters, one upper case and one number"
+			"^^(?=.*?[A-Z])(?=.*?[0-9]).{8,}$",
+			"Minimum 8 characters, one upper case and one number"
 		),
 });
 const validationSchemaSignUp = yup.object().shape({
@@ -16,8 +16,8 @@ const validationSchemaSignUp = yup.object().shape({
 		.string()
 		.required("Please Enter your password")
 		.matches(
-			"^^(?=.*?[A-Z])(?=.*?[0-9]).{4,}$",
-			"Minimum 4 characters, one upper case and one number"
+			"^^(?=.*?[A-Z])(?=.*?[0-9]).{8,}$",
+			"Minimum 8 characters, one upper case and one number"
 		),
 	repeat_password: yup
 		.string()

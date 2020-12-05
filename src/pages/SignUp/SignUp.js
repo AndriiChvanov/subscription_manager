@@ -9,11 +9,17 @@ import { UiLabel } from "@components/ui/UiLabel";
 import { Formik } from "formik";
 import { RightCircleFilled } from "@ant-design/icons";
 import { validationSchemaSignUp } from "@helpers/Validators";
+import { useDispatch } from "react-redux";
+import { loadData } from "../../actions";
 
 const formInitialValues = { email: "", password: "", repeat_password: "" };
 
 export function SignUp() {
-	
+	const dispatch = useDispatch();
+	const handleSingUp = (values) => {
+		dispatch(loadData(values));
+	};
+
 	return (
 		<div className='signup-page'>
 			<h1 className='text-h1'>Welcome</h1>
@@ -29,7 +35,7 @@ export function SignUp() {
 					initialValues={formInitialValues}
 					validateOnBlur
 					onSubmit={(values) => {
-						console.log(values);
+						handleSingUp(values);
 					}}
 					validationSchema={validationSchemaSignUp}>
 					{({
@@ -83,7 +89,12 @@ export function SignUp() {
 							{touched.repeat_password && errors.repeat_password && (
 								<p className='errors'>{errors.repeat_password}</p>
 							)}
-							<UiButton className='m40' onClick={handleSubmit} type={`submit`}>
+							<UiButton
+								className='m40'
+								onClick={() => {
+									handleSubmit();
+								}}
+								type={`submit`}>
 								Sign Up
 								<RightCircleFilled
 									style={{ color: "#FFFFFF", fontSize: "32px" }}

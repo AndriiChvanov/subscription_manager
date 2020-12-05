@@ -9,10 +9,14 @@ import { UiLabel } from "@components/ui/UiLabel";
 import { Formik } from "formik";
 import { RightCircleFilled } from "@ant-design/icons";
 import { validationSchemaLogin } from "@helpers/Validators";
+import { authSignIn } from "@services/firebase/AuthSignIn";
 
 const formInitialValues = { email: "", password: "" };
 
 export function Login() {
+	const handleSingIn = () =>
+		authSignIn(formInitialValues.email, formInitialValues.password);
+
 	return (
 		<div className='login-page'>
 			<h1 className='text-h1'>Welcome</h1>
@@ -68,7 +72,13 @@ export function Login() {
 							{touched.password && errors.password && (
 								<p className='errors'>{errors.password}</p>
 							)}
-							<UiButton className='m40' onClick={handleSubmit} type={`submit`}>
+							<UiButton
+								className='m40'
+								onClick={() => {
+									handleSubmit();
+									handleSingIn();
+								}}
+								type={`submit`}>
 								Login
 								<RightCircleFilled
 									style={{ color: "#FFFFFF", fontSize: "32px" }}
