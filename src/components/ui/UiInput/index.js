@@ -1,1 +1,1 @@
-export { UiInput, UiInputPassword } from "./UiInput";
+export { UiInput } from "./UiInput";

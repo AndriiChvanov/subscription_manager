@@ -2,56 +2,45 @@ import React from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import { UiButton } from "@components/ui/UiButton";
-import { UiInput, UiInputPassword } from "@components/ui/UiInput";
+import { UiInput } from "@components/ui/UiInput";
+import { UiInputPassword } from "@components/ui/UiInputPassword";
 import { UiContainer } from "@components/ui/UiContainer";
 import { UiLabel } from "@components/ui/UiLabel";
-import * as yup from "yup";
 import { Formik } from "formik";
+import { RightCircleFilled } from "@ant-design/icons";
+import { validationSchemaLogin } from "@helpers/Validators";
+
+const formInitialValues = { email: "", password: "" };
 
 export function Login() {
-	const validationSchema = yup.object().shape({
-		email: yup.string().email().required("Please Enter your Email"),
-		password: yup
-			.string()
-			.required("Please Enter your password")
-			.matches(
-				"^^(?=.*?[A-Z])(?=.*?[0-9]).{4,}$",
-				"Minimum 4 characters, one upper case and one number"
-			),
-	});
 	return (
-		<div className='login'>
-			<h1 className='text__h1'>Welcome</h1>
-			<h2 className='text__h2'>
+		<div className='login-page'>
+			<h1 className='text-h1'>Welcome</h1>
+			<h2 className='text-h2'>
 				Please login to your account.
 				<br /> Or{" "}
 				<Link to='/signup' className='text-link'>
 					Sign Up
 				</Link>
 			</h2>
-			<UiContainer style={{ marginTop: "20px" }}>
+			<UiContainer className='ui-container mt20'>
 				<Formik
-					initialValues={{
-						email: "",
-						password: "",
-					}}
+					initialValues={formInitialValues}
 					validateOnBlur
 					onSubmit={(values) => {
 						console.log(values);
 					}}
-					validationSchema={validationSchema}>
+					validationSchema={validationSchemaLogin}>
 					{({
 						values,
 						errors,
 						touched,
 						handleChange,
 						handleBlur,
-						isValid,
 						handleSubmit,
-						dirty,
 					}) => (
 						<>
-							<UiLabel style={{ paddingTop: "40px" }}>
+							<UiLabel className='pt40'>
 								Email
 								<UiInput
 									name={`email`}
@@ -65,7 +54,7 @@ export function Login() {
 							{touched.email && errors.email && (
 								<p className='errors'>{errors.email}</p>
 							)}
-							<UiLabel style={{ paddingTop: "15px" }}>
+							<UiLabel className='pt15'>
 								Password
 								<UiInputPassword
 									name={`password`}
@@ -75,15 +64,15 @@ export function Login() {
 									placeholder='password'
 									className='input-large pl-hold'
 								/>
-							</UiLabel >
+							</UiLabel>
 							{touched.password && errors.password && (
 								<p className='errors'>{errors.password}</p>
 							)}
-							<UiButton
-								style={{ margin: "40px" }}
-								onClick={handleSubmit}
-								type={`submit`}>
+							<UiButton className='m40' onClick={handleSubmit} type={`submit`}>
 								Login
+								<RightCircleFilled
+									style={{ color: "#FFFFFF", fontSize: "32px" }}
+								/>
 							</UiButton>
 						</>
 					)}

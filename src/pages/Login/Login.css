@@ -1,5 +1,5 @@
-.login {
-	background-image: url("../../images/background.png");
+.login-page {
+	background-image: url("../../assets/images/background.png");
 	background-repeat: no-repeat;
 	object-fit: contain;
 	min-width: 375px;

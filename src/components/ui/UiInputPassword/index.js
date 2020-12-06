@@ -1,0 +1,1 @@
+export { UiInputPassword } from "./UiInputPassword";
