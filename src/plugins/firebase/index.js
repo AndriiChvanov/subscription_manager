@@ -13,5 +13,3 @@ export const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-firebase.auth();

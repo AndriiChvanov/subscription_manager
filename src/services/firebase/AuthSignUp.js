@@ -1,12 +1,13 @@
 import firebase from "firebase";
 
-const authSignUp = (email, password) =>
+const authSignUp = (action) => {
 	firebase
 		.auth()
-		.createUserWithEmailAndPassword(email, password)
+		.createUserWithEmailAndPassword(action.email, action.password)
 		.then((user) => {
-			console.log(user);
+			console.log("SIGN_UP");
 		})
 		.catch((error) => {});
+};
 
 export { authSignUp };
