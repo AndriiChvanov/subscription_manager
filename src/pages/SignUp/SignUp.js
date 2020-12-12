@@ -1,6 +1,7 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import "./SignUp.css";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { UiButton } from "@components/ui/UiButton";
 import { UiInput } from "@components/ui/UiInput";
 import { UiInputPassword } from "@components/ui/UiInputPassword";
@@ -8,21 +9,31 @@ import { UiContainer } from "@components/ui/UiContainer";
 import { UiLabel } from "@components/ui/UiLabel";
 import { Formik } from "formik";
 import { RightCircleFilled } from "@ant-design/icons";
-import { validationSchemaSignUp } from "@helpers/Validators";
-import { authSignUp } from "@services/firebase/AuthSignUp";
+import { validationSchemaSignUp } from "@helpers/validators";
+import { signUpLoad } from "@actions";
 
 const formInitialValues = { email: "", password: "", repeat_password: "" };
 
 export function SignUp() {
-	const handleSingUp = useCallback((values) => {
-		authSignUp(values.email, values.password);
-	}, []);
+	const dispatch = useDispatch();
+	const auth = useSelector((state) => state.signUpReducer.isAuth);
+
+	useEffect(() => {}, [auth]);
+
+	const handleSingUp = useCallback(
+		(values) => {
+			dispatch(signUpLoad(values));
+		},
+		[dispatch]
+	);
+	if (auth) {
+		return <Redirect to='/' />;
+	}
 	return (
 		<div className='signup-page'>
 			<h1 className='text-h1'>Welcome</h1>
 			<h2 className='text-h2'>
 				Fill all fields to create the new account.
-				<br />
 				<Link to='/login' className='text-link'>
 					<p className='text-p'>Login</p>
 				</Link>

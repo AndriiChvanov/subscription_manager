@@ -5,26 +5,26 @@ const initialState = {
 	error: false,
 };
 
-const reducer = (state = initialState, action) => {
+const loginReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case "SIGN_UP":
+		case "LOGIN_SUCCESS":
 			return {
 				...state,
 				isAuth: true,
-				loading: false,
-				error: false,
 			};
-		case "LOAD_DATA":
+		case "LOGIN_LOAD":
 			return {
 				...state,
 				users: action.payload,
-				isAuth: false,
-				loading: false,
-				error: false,
+			};
+		case "LOGIN_ERROR":
+			return {
+				...state,
+				error: true,
 			};
 		default:
 			return state;
 	}
 };
 
-export default reducer;
+export default loginReducer;

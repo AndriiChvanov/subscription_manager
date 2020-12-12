@@ -1,6 +1,7 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { UiButton } from "@components/ui/UiButton";
 import { UiInput } from "@components/ui/UiInput";
 import { UiInputPassword } from "@components/ui/UiInputPassword";
@@ -8,17 +9,27 @@ import { UiContainer } from "@components/ui/UiContainer";
 import { UiLabel } from "@components/ui/UiLabel";
 import { Formik } from "formik";
 import { RightCircleFilled } from "@ant-design/icons";
-import { validationSchemaLogin } from "@helpers/Validators";
-import { authSignIn } from "@services/firebase/AuthSignIn";
+import { validationSchemaLogin } from "@helpers/validators";
+import { loginLoad } from "@actions";
 
 const formInitialValues = { email: "", password: "" };
 
 export function Login() {
-	const handleSingIn = useCallback((values) => {
-		if (!values.email || !values.password) return;
-		authSignIn(values.email, values.password);
-	}, []);
+	const dispatch = useDispatch();
+	const auth = useSelector((state) => state.loginReducer.isAuth);
 
+	useEffect(() => {}, [auth]);
+
+	const handleSingIn = useCallback(
+		(values) => {
+			dispatch(loginLoad(values));
+		},
+		[dispatch]
+	);
+
+	if (auth) {
+		return <Redirect to='/' />;
+	}
 	return (
 		<div className='login-page'>
 			<h1 className='text-h1'>Welcome</h1>

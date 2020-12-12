@@ -8,7 +8,9 @@ module.exports = function override(config) {
 		"@helpers": "src/helpers",
 		"@plugins": "src/plugins",
 		"@services": "src/services",
-		"@actions": "src/actions",
+		"@actions": "src/store/actions",
+		"@sagas": "src/store/sagas",
+		"@reducers": "src/store/reducers",
 	})(config);
 
 	return config;
