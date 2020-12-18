@@ -16,7 +16,7 @@ const formInitialValues = { email: "", password: "", repeat_password: "" };
 
 export function SignUp() {
 	const dispatch = useDispatch();
-	const auth = useSelector((state) => state.signUpReducer.isAuth);
+	const auth = useSelector((state) => state.auth.isAuth);
 
 	useEffect(() => {}, [auth]);
 

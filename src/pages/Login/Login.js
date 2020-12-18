@@ -16,7 +16,7 @@ const formInitialValues = { email: "", password: "" };
 
 export function Login() {
 	const dispatch = useDispatch();
-	const auth = useSelector((state) => state.loginReducer.isAuth);
+	const auth = useSelector((state) => state.auth.isAuth);
 
 	useEffect(() => {}, [auth]);
 

@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import loginReducer from "@reducers/auth/login";
-import signUpReducer from "@reducers/auth/signUp";
+import auth from "@reducers/auth/auth";
+import user from "@reducers/user/user";
 
 export default combineReducers({
-	loginReducer,
-	signUpReducer,
+	auth,
+	user,
 });
