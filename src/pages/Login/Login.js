@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { UiButton } from "@components/ui/UiButton";
 import { UiInput } from "@components/ui/UiInput";
 import { UiInputPassword } from "@components/ui/UiInputPassword";
@@ -8,28 +9,41 @@ import { UiContainer } from "@components/ui/UiContainer";
 import { UiLabel } from "@components/ui/UiLabel";
 import { Formik } from "formik";
 import { RightCircleFilled } from "@ant-design/icons";
-import { validationSchemaLogin } from "@helpers/Validators";
+import { validationSchemaLogin } from "@helpers/validators";
+import { loginLoad } from "@actions";
 
 const formInitialValues = { email: "", password: "" };
 
 export function Login() {
+	const dispatch = useDispatch();
+	const auth = useSelector((state) => state.auth.isAuth);
+
+	useEffect(() => {}, [auth]);
+
+	const handleSingIn = useCallback(
+		(values) => {
+			dispatch(loginLoad(values));
+		},
+		[dispatch]
+	);
+
+	if (auth) {
+		return <Redirect to='/' />;
+	}
 	return (
 		<div className='login-page'>
 			<h1 className='text-h1'>Welcome</h1>
 			<h2 className='text-h2'>
 				Please login to your account.
-				<br /> Or{" "}
 				<Link to='/signup' className='text-link'>
-					Sign Up
+					<p className='text-p'>Sign Up</p>
 				</Link>
 			</h2>
 			<UiContainer className='ui-container mt20'>
 				<Formik
 					initialValues={formInitialValues}
 					validateOnBlur
-					onSubmit={(values) => {
-						console.log(values);
-					}}
+					onSubmit={handleSingIn}
 					validationSchema={validationSchemaLogin}>
 					{({
 						values,
@@ -43,7 +57,7 @@ export function Login() {
 							<UiLabel className='pt40'>
 								Email
 								<UiInput
-									name={`email`}
+									name='email'
 									onChange={handleChange}
 									onBlur={handleBlur}
 									value={values.email}
@@ -57,7 +71,7 @@ export function Login() {
 							<UiLabel className='pt15'>
 								Password
 								<UiInputPassword
-									name={`password`}
+									name='password'
 									onChange={handleChange}
 									onBlur={handleBlur}
 									value={values.password}
@@ -68,7 +82,7 @@ export function Login() {
 							{touched.password && errors.password && (
 								<p className='errors'>{errors.password}</p>
 							)}
-							<UiButton className='m40' onClick={handleSubmit} type={`submit`}>
+							<UiButton className='m40' onClick={handleSubmit}>
 								Login
 								<RightCircleFilled
 									style={{ color: "#FFFFFF", fontSize: "32px" }}

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import "./SignUp.css";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { UiButton } from "@components/ui/UiButton";
 import { UiInput } from "@components/ui/UiInput";
 import { UiInputPassword } from "@components/ui/UiInputPassword";
@@ -8,29 +9,40 @@ import { UiContainer } from "@components/ui/UiContainer";
 import { UiLabel } from "@components/ui/UiLabel";
 import { Formik } from "formik";
 import { RightCircleFilled } from "@ant-design/icons";
-import { validationSchemaSignUp } from "@helpers/Validators";
+import { validationSchemaSignUp } from "@helpers/validators";
+import { signUpLoad } from "@actions";
 
 const formInitialValues = { email: "", password: "", repeat_password: "" };
 
 export function SignUp() {
-	
+	const dispatch = useDispatch();
+	const auth = useSelector((state) => state.auth.isAuth);
+
+	useEffect(() => {}, [auth]);
+
+	const handleSingUp = useCallback(
+		(values) => {
+			dispatch(signUpLoad(values));
+		},
+		[dispatch]
+	);
+	if (auth) {
+		return <Redirect to='/' />;
+	}
 	return (
 		<div className='signup-page'>
 			<h1 className='text-h1'>Welcome</h1>
 			<h2 className='text-h2'>
 				Fill all fields to create the new account.
-				<br /> Or{" "}
 				<Link to='/login' className='text-link'>
-					Login
+					<p className='text-p'>Login</p>
 				</Link>
 			</h2>
 			<UiContainer className='ui-container mt20'>
 				<Formik
 					initialValues={formInitialValues}
 					validateOnBlur
-					onSubmit={(values) => {
-						console.log(values);
-					}}
+					onSubmit={handleSingUp}
 					validationSchema={validationSchemaSignUp}>
 					{({
 						values,
@@ -44,7 +56,7 @@ export function SignUp() {
 							<UiLabel className='pt40'>
 								Email
 								<UiInput
-									name={`email`}
+									name='email'
 									onChange={handleChange}
 									onBlur={handleBlur}
 									value={values.email}
@@ -58,7 +70,7 @@ export function SignUp() {
 							<UiLabel className='pt15'>
 								Password
 								<UiInputPassword
-									name={`password`}
+									name='password'
 									onChange={handleChange}
 									onBlur={handleBlur}
 									value={values.password}
@@ -72,7 +84,7 @@ export function SignUp() {
 							<UiLabel className='pt15'>
 								Repeat password
 								<UiInputPassword
-									name={`repeat_password`}
+									name='repeat_password'
 									onChange={handleChange}
 									onBlur={handleBlur}
 									value={values.repeat_password}
@@ -83,7 +95,7 @@ export function SignUp() {
 							{touched.repeat_password && errors.repeat_password && (
 								<p className='errors'>{errors.repeat_password}</p>
 							)}
-							<UiButton className='m40' onClick={handleSubmit} type={`submit`}>
+							<UiButton className='m40' onClick={handleSubmit}>
 								Sign Up
 								<RightCircleFilled
 									style={{ color: "#FFFFFF", fontSize: "32px" }}
