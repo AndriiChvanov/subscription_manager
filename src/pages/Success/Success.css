@@ -1,0 +1,45 @@
+.success {
+	background-image: url("../../assets/images/bg-success.png");
+	background-repeat: no-repeat;
+	object-fit: contain;
+	min-width: 375px;
+	min-height: 812px;
+	padding-top: 188px;
+}
+.success-img {
+	background-image: url("../../assets/images/loader-success.png");
+	background-repeat: no-repeat;
+	width: 93px;
+	height: 93px;
+	position: relative;
+	margin: 0 auto;
+}
+.success-h1 {
+	margin-top: 10px;
+	font-family: "Arial", sans-serif;
+	font-size: 20px;
+	line-height: 28px;
+	letter-spacing: 0.39px;
+	color: #042c5c;
+	text-align: center;
+}
+.ant-btn {
+	text-align: center;
+	align-items: center;
+	min-width: 175px;
+	min-height: 38.09px;
+	background-color: #fff;
+	border-radius: 25px;
+	border-color: #3380fe;
+	font-family: "Arial", sans-serif;
+	color: #3380fe;
+	font-size: 14px;
+	line-height: 28px;
+	letter-spacing: 0.27;
+	margin: 100px;
+	margin-top: 90px;
+}
+.ant-btn:hover {
+	background-color: #3380fe;
+	color: #fff;
+}

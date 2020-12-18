@@ -24,4 +24,7 @@ const validationSchemaSignUp = yup.object().shape({
 		.oneOf([yup.ref("password")], "This password does not match")
 		.required("This password does not match"),
 });
-export { validationSchemaLogin, validationSchemaSignUp };
+const validationSchemaReset = yup.object().shape({
+	email: yup.string().email().required("Please Enter your Email"),
+});
+export { validationSchemaLogin, validationSchemaSignUp, validationSchemaReset };

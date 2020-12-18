@@ -1,6 +1,8 @@
 const initialState = {
 	users: "",
+	resetPass: "",
 	isAuth: false,
+	isResetPass: false,
 	loading: false,
 	error: false,
 };
@@ -36,6 +38,21 @@ const auth = (state = initialState, action) => {
 			return {
 				...state,
 				error: true,
+			};
+		case "RESET_LOAD":
+			return {
+				...state,
+				resetPass: action.payload,
+			};
+		case "RESET_ERROR":
+			return {
+				...state,
+				error: true,
+			};
+		case "RESET_SUCCESS":
+			return {
+				...state,
+				isResetPass: true,
 			};
 		default:
 			return state;

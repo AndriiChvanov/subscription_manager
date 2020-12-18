@@ -21,3 +21,13 @@ export const firebaseSignUp = async (email, password) => {
 		throw error;
 	}
 };
+
+export const firebaseResetPassword = async (emailAddress) => {
+	try {
+		const data = await firebase.auth().sendPasswordResetEmail(emailAddress);
+		console.log(data);
+		return data;
+	} catch (error) {
+		throw error;
+	}
+};

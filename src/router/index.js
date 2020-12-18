@@ -5,6 +5,8 @@ const Home = lazy(() => import("@pages/Home"));
 const GuideLine = lazy(() => import("@pages/GuideLine"));
 const Login = lazy(() => import("@pages/Login"));
 const SignUp = lazy(() => import("@pages/SignUp"));
+const Success = lazy(() => import("@pages/Success"));
+const ResetPassword = lazy(() => import("@pages/ResetPassword"));
 
 export function RouterView() {
 	return (
@@ -15,6 +17,8 @@ export function RouterView() {
 					<Route exact path='/guideline' component={GuideLine} />
 					<Route exact path='/login' component={Login} />
 					<Route exact path='/signup' component={SignUp} />
+					<Route exact path='/success' component={Success} />
+					<Route exact path='/resetPassword' component={ResetPassword} />
 				</Switch>
 			</Suspense>
 		</Router>
