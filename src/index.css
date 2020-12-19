@@ -40,6 +40,9 @@ code {
 .mt20 {
 	margin-top: 20px;
 }
+.pt30{
+	padding-top: 30px;
+}
 .pt40 {
 	padding-top: 40px;
 }
@@ -49,6 +52,24 @@ code {
 .m40 {
 	margin: 40px;
 }
-.mt90{
+.mt90 {
 	margin-top: 90px;
+}
+.ml-11 {
+	margin-left: -11px;
+}
+.ml5{
+	margin-left: 5px;
+}
+.ml20{
+	margin-left: 20px;
+}
+.mt130{
+	margin-top: 130px;
+}
+.df {
+	display: flex;
+}
+.spase-between {
+	justify-content: space-between;
 }

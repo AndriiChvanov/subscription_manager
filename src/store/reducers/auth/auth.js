@@ -12,11 +12,13 @@ const auth = (state = initialState, action) => {
 		case "LOGIN_SUCCESS":
 			return {
 				...state,
+				error: false,
 				isAuth: true,
 			};
 		case "LOGIN_LOAD":
 			return {
 				...state,
+				error: false,
 				users: action.payload,
 			};
 		case "LOGIN_ERROR":
@@ -27,11 +29,13 @@ const auth = (state = initialState, action) => {
 		case "SIGN_UP_SUCCESS":
 			return {
 				...state,
+				error: false,
 				isAuth: true,
 			};
 		case "SIGN_UP_LOAD":
 			return {
 				...state,
+				error: false,
 				newUsers: action.payload,
 			};
 		case "SIGN_UP_ERROR":
@@ -43,6 +47,7 @@ const auth = (state = initialState, action) => {
 			return {
 				...state,
 				resetPass: action.payload,
+				error: false,
 			};
 		case "RESET_ERROR":
 			return {
@@ -53,6 +58,7 @@ const auth = (state = initialState, action) => {
 			return {
 				...state,
 				isResetPass: true,
+				error: false,
 			};
 		default:
 			return state;

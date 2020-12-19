@@ -1,0 +1,45 @@
+.add-subcsriptions {
+	background-image: url("../../assets/images/background.png");
+	background-repeat: no-repeat;
+	object-fit: contain;
+}
+.ant-btn {
+	margin: 130px 0px 45px 45px;
+	min-width: 223.75px;
+	min-height: 57px;
+	background-color: #c8c8c8;
+	border-radius: 18px;
+	text-align: center;
+	align-items: center;
+	font-family: "Arial", sans-serif;
+	color: #fff;
+	font-size: 14px;
+	line-height: 34px;
+	letter-spacing: 0.27;
+}
+.ant-btn:hover {
+	background-color: #3380fe;
+	color: #fff;
+}
+.anticon {
+	position: relative;
+	float: right;
+}
+.subsc-h1{
+	padding-top: 48px;
+	font-family: "Arial", sans-serif;
+	font-size: 20px;
+	line-height: 28px;
+	letter-spacing: 0.39;
+	color: #fff;
+	text-align: center;
+}
+.subsc-h2 {
+	margin: 25px 40px;
+	font-family: "Arial", sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	letter-spacing: 0.27;
+	color: #fff;
+	text-align: center;
+}

@@ -7,6 +7,7 @@ const Login = lazy(() => import("@pages/Login"));
 const SignUp = lazy(() => import("@pages/SignUp"));
 const Success = lazy(() => import("@pages/Success"));
 const ResetPassword = lazy(() => import("@pages/ResetPassword"));
+const AddSubcsriptions = lazy(() => import("@pages/AddSubcsriptions"));
 
 export function RouterView() {
 	return (
@@ -18,7 +19,8 @@ export function RouterView() {
 					<Route exact path='/login' component={Login} />
 					<Route exact path='/signup' component={SignUp} />
 					<Route exact path='/success' component={Success} />
-					<Route exact path='/resetPassword' component={ResetPassword} />
+					<Route exact path='/resetpassword' component={ResetPassword} />
+					<Route exact path='/addsubcsriptions' component={AddSubcsriptions} />
 				</Switch>
 			</Suspense>
 		</Router>
