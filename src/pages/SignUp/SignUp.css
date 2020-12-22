@@ -1,28 +1,7 @@
-.signup-page{
+.signup-page {
 	background-image: url("../../assets/images/background.png");
 	background-repeat: no-repeat;
 	object-fit: contain;
 	min-width: 375px;
 	min-height: 812px;
-}
-.ant-btn {
-	min-width: 223.75px;
-	min-height: 57px;
-	background-color: #c8c8c8;
-	border-radius: 18px;
-	text-align: center;
-	align-items: center;
-	font-family: "Arial", sans-serif;
-	color: #fff;
-	font-size: 14px;
-	line-height: 34px;
-	letter-spacing: 0.27;
-}
-.ant-btn:hover {
-	background-color: #3380fe;
-	color: #fff;
-}
-.anticon {
-	position: relative;
-	float: right;
 }

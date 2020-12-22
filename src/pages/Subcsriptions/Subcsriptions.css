@@ -1,0 +1,23 @@
+.subcsriptions {
+	background: #ebeff6;
+	min-width: 375px;
+	min-height: 810px;
+}
+.subcsription__container{
+	margin: 0 26px;
+}
+.subcsription__title {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 50px;
+}
+.anticon.anticon-plus-circle {
+	color: #fff;
+	font-size: 30px;
+	background: #77869e;
+	border-radius: 2em;
+	border: none;
+}
+.add-icons{
+	margin-top: -8px;
+}

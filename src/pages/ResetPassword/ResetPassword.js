@@ -1,14 +1,14 @@
 import React, { useCallback, useEffect } from "react";
 import "./ResetPassword.css";
-import { UiButton } from "@components/ui/UiButton";
-import { UiInput } from "@components/ui/UiInput";
+import { UiButton, UiButtonCircle } from "@components/ui/UiButton";
+import { UiField } from "@components/ui/UiField";
+import { UiInput, UiInputError } from "@components/ui/UiInput";
 import { UiContainer } from "@components/ui/UiContainer";
 import { UiLabel } from "@components/ui/UiLabel";
 import { validationSchemaReset } from "@helpers/validators";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik } from "formik";
-import { RightCircleFilled } from "@ant-design/icons";
 import { resetLoad } from "@actions";
 
 const formInitialValues = { email: "" };
@@ -16,8 +16,13 @@ const formInitialValues = { email: "" };
 export function ResetPassword() {
 	const dispatch = useDispatch();
 	const auth = useSelector((state) => state.auth.isResetPass);
+	const history = useHistory();
 
-	useEffect(() => {}, [auth]);
+	useEffect(() => {
+		if (auth) {
+			history.push("/success");
+		}
+	}, [auth, history]);
 
 	const handleResetPassword = useCallback(
 		(values) => {
@@ -26,9 +31,6 @@ export function ResetPassword() {
 		[dispatch]
 	);
 
-	if (auth) {
-		return <Redirect to='/success' />;
-	}
 	return (
 		<div className='reset-password'>
 			<h1 className='text-h1'>Reset Password</h1>
@@ -48,8 +50,8 @@ export function ResetPassword() {
 						handleSubmit,
 					}) => (
 						<>
-							<UiLabel className='pt40'>
-								Email
+							<UiField className='reset-password__field pt40'>
+								<UiLabel>Email</UiLabel>
 								<UiInput
 									name='email'
 									onChange={handleChange}
@@ -57,16 +59,20 @@ export function ResetPassword() {
 									value={values.email}
 									placeholder='email@email.com'
 									className='input-large pl-hold'
+									rules={[
+										{
+											required: true,
+											message: "Please input your email!",
+										},
+									]}
 								/>
-							</UiLabel>
+							</UiField>
 							{touched.email && errors.email && (
-								<p className='errors'>{errors.email}</p>
+								<UiInputError>{errors.email}</UiInputError>
 							)}
-							<UiButton className='m40' onClick={handleSubmit}>
+							<UiButton variant='default' onClick={handleSubmit}>
 								Send
-								<RightCircleFilled
-									style={{ color: "#FFFFFF", fontSize: "32px" }}
-								/>
+								<UiButtonCircle />
 							</UiButton>
 						</>
 					)}

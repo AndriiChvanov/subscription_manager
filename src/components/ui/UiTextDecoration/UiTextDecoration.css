@@ -1,0 +1,14 @@
+.text-font {
+	font-family: "Arial", sans-serif;
+	color: #042c5c;
+}
+.ui-title {
+	font-size: 26px;
+	list-style: 31px;
+	letter-spacing: -0.98;
+}
+.ui-text {
+	font-size: 20px;
+	list-style: 28px;
+	letter-spacing: 0.39;
+}

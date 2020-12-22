@@ -1,7 +1,23 @@
 import { Button } from "antd";
-
+import { RightCircleFilled } from "@ant-design/icons";
 import "./UiButton.css";
 
 export function UiButton(props) {
-	return <Button {...props}>{props.children}</Button>;
+	const btnClass =
+		props.variant === "secondary" ? "ui-button__success" : "ui-button";
+
+	return (
+		<Button className={btnClass} {...props}>
+			{props.children}
+		</Button>
+	);
+}
+
+export function UiButtonCircle(props) {
+	return (
+		<RightCircleFilled
+			style={{ color: "#FFFFFF", fontSize: "32px" }}
+			{...props}
+		/>
+	);
 }
