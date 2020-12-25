@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { UiContainer } from "@components/ui/UiContainer";
 import { AddIcon } from "@icons/addIcon";
 import { UiTitle, UiText } from "@components/ui/UiTextDecoration";
+
 import "./Subcsriptions.css";
 
 export function Subcsriptions() {
@@ -11,7 +12,6 @@ export function Subcsriptions() {
 	const handelClick = () => {
 		history.push("/addsubcsriptions");
 	};
-
 	return (
 		<div className='subcsriptions'>
 			<UiContainer className='subcsription__container'>
