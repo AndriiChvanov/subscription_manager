@@ -8,17 +8,15 @@ export function UiDatePicker(props) {
 
 	const [field, meta, helpers] = useField(props.name);
 
-	const defaultOnChange = (date, dateString) => {
+	const defaultOnChange = (dateString) => {
 		helpers.setValue(dateString);
 	};
-	const onChange = (date, dateString) => {
-		defaultOnChange(date, dateString);
-	};
+
 	return (
 		<DatePicker
 			defaultValue={moment("2020-01-01", dateFormat)}
 			format={dateFormat}
-			onChange={onChange}
+			onChange={(date, dateString) => defaultOnChange(dateString)}
 			{...props}
 		/>
 	);

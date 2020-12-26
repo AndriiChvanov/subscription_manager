@@ -4,7 +4,7 @@ import "./UiButton.css";
 
 export function UiButton(props) {
 	const btnClass =
-		props.variant === "secondary" ? "ui-button__success" : "ui-button";
+		props.variant === "secondary" ? "ui-button__secondary" : "ui-button";
 
 	return (
 		<Button className={btnClass} {...props}>

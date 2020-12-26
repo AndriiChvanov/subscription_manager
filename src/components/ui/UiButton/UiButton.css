@@ -30,10 +30,10 @@
 	margin-left: 155px;
 }
 
-.ui-button__success {
+.ui-button__secondary {
 	margin: 40px 0 45px 45px;
 }
-.ui-button__success.ant-btn {
+.ui-button__secondary.ant-btn {
 	text-align: center;
 	align-items: center;
 	min-width: 175px;
@@ -49,12 +49,12 @@
 	margin: 100px;
 	margin-top: 90px;
 }
-.ui-button__success.ant-btn:hover {
+.ui-button__secondary.ant-btn:hover {
 	background-color: #3380fe;
 	color: #fff;
 }
-.ui-button__success.ant-btn > .anticon + span,
-.ui-button__success.ant-btn > span + .anticon {
+.ui-button__secondary.ant-btn > .anticon + span,
+.ui-button__secondary.ant-btn > span + .anticon {
 	position: absolute;
 	margin-left: 155px;
 }
