@@ -10,7 +10,7 @@ export function Subcsriptions() {
 	const history = useHistory();
 
 	const handelClick = () => {
-		history.push("/addsubcsriptions");
+		history.push("/add-subcsriptions");
 	};
 	return (
 		<div className='subcsriptions'>

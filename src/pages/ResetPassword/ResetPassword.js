@@ -8,21 +8,14 @@ import { UiLabel } from "@components/ui/UiLabel";
 import { validationSchemaReset } from "@helpers/validators";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Formik } from "formik";
+import { UiForm } from "@components/ui/UiForm";
 import { resetLoad } from "@actions";
-
-const formInitialValues = { email: "" };
+import { ressetPass } from "@helpers/rulse";
 
 export function ResetPassword() {
 	const dispatch = useDispatch();
 	const auth = useSelector((state) => state.auth.isResetPass);
 	const history = useHistory();
-
-	useEffect(() => {
-		if (auth) {
-			history.push("/success");
-		}
-	}, [auth, history]);
 
 	const handleResetPassword = useCallback(
 		(values) => {
@@ -31,14 +24,18 @@ export function ResetPassword() {
 		[dispatch]
 	);
 
+	useEffect(() => {
+		if (auth) {
+			history.push("/success");
+		}
+	}, [auth, history]);
+
 	return (
 		<div className='reset-password'>
 			<h1 className='text-h1'>Reset Password</h1>
 			<h2 className='text-h2'>Please enter your email address</h2>
 			<UiContainer className='ui-container mt20'>
-				<Formik
-					initialValues={formInitialValues}
-					validateOnBlur
+				<UiForm
 					onSubmit={handleResetPassword}
 					validationSchema={validationSchemaReset}>
 					{({
@@ -59,12 +56,7 @@ export function ResetPassword() {
 									value={values.email}
 									placeholder='email@email.com'
 									className='input-large pl-hold'
-									rules={[
-										{
-											required: true,
-											message: "Please input your email!",
-										},
-									]}
+									rules={ressetPass}
 								/>
 							</UiField>
 							{touched.email && errors.email && (
@@ -76,7 +68,7 @@ export function ResetPassword() {
 							</UiButton>
 						</>
 					)}
-				</Formik>
+				</UiForm>
 			</UiContainer>
 		</div>
 	);

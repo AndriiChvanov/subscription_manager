@@ -19,7 +19,7 @@ export function RouterView() {
 					<Route exact path='/signup' component={SignUp} />
 					<Route exact path='/success' component={Success} />
 					<Route exact path='/resetpassword' component={ResetPassword} />
-					<Route exact path='/addsubcsriptions' component={AddSubcsriptions} />
+					<Route exact path='/add-subcsriptions' component={AddSubcsriptions} />
 					<Route exact path='/subcsriptions' component={Subcsriptions} />
 				</Switch>
 			</Suspense>

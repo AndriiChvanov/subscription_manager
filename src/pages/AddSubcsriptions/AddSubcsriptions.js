@@ -10,7 +10,7 @@ import { UiLabel } from "@components/ui/UiLabel";
 import { UiField } from "@components/ui/UiField";
 import { UiDisplay } from "@components/ui/UiDisplay";
 import { UiDatePicker } from "@components/ui/UiDatePicker";
-import { Formik } from "formik";
+import { UiForm } from "@components/ui/UiForm";
 import { LeftOutlined } from "@ant-design/icons";
 import { periods } from "@constants";
 import { validationSchemaAddSubscritpion } from "@helpers/validators";
@@ -18,13 +18,6 @@ import { validationSchemaAddSubscritpion } from "@helpers/validators";
 export function AddSubcsriptions() {
 	const history = useHistory();
 
-	const formInitialValues = {
-		name: "",
-		amount: "",
-		nextpayment: "",
-		duedate: "",
-		billingcycle: "",
-	};
 	const handleSingUp = (values) => {
 		console.log(values);
 	};
@@ -44,9 +37,7 @@ export function AddSubcsriptions() {
 					you track and manage it.
 				</p>
 				<UiContainer>
-					<Formik
-						initialValues={formInitialValues}
-						validateOnBlur
+					<UiForm
 						onSubmit={handleSingUp}
 						validationSchema={validationSchemaAddSubscritpion}>
 						{({
@@ -116,7 +107,7 @@ export function AddSubcsriptions() {
 								</UiButton>
 							</>
 						)}
-					</Formik>
+					</UiForm>
 				</UiContainer>
 			</div>
 		</div>

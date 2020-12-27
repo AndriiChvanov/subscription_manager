@@ -8,22 +8,14 @@ import { UiInput, UiInputError } from "@components/ui/UiInput";
 import { UiInputPassword } from "@components/ui/UiInputPassword";
 import { UiContainer } from "@components/ui/UiContainer";
 import { UiLabel } from "@components/ui/UiLabel";
-import { Formik } from "formik";
+import { UiForm } from "@components/ui/UiForm";
 import { validationSchemaSignUp } from "@helpers/validators";
 import { signUpLoad } from "@actions";
-
-const formInitialValues = { email: "", password: "", repeat_password: "" };
 
 export function SignUp() {
 	const dispatch = useDispatch();
 	const auth = useSelector((state) => state.auth.isAuth);
 	const history = useHistory();
-
-	useEffect(() => {
-		if (auth) {
-			history.push("/");
-		}
-	}, [auth, history]);
 
 	const handleSingUp = useCallback(
 		(values) => {
@@ -31,6 +23,13 @@ export function SignUp() {
 		},
 		[dispatch]
 	);
+
+	useEffect(() => {
+		if (auth) {
+			history.push("/");
+		}
+	}, [auth, history]);
+
 	return (
 		<div className='signup-page'>
 			<h1 className='text-h1'>Welcome</h1>
@@ -41,9 +40,7 @@ export function SignUp() {
 				</Link>
 			</h2>
 			<UiContainer className='ui-container mt20'>
-				<Formik
-					initialValues={formInitialValues}
-					validateOnBlur
+				<UiForm
 					onSubmit={handleSingUp}
 					validationSchema={validationSchemaSignUp}>
 					{({
@@ -102,7 +99,7 @@ export function SignUp() {
 							</UiButton>
 						</>
 					)}
-				</Formik>
+				</UiForm>
 			</UiContainer>
 		</div>
 	);

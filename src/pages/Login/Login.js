@@ -8,18 +8,23 @@ import { UiInput, UiInputError } from "@components/ui/UiInput";
 import { UiInputPassword } from "@components/ui/UiInputPassword";
 import { UiContainer } from "@components/ui/UiContainer";
 import { UiLabel } from "@components/ui/UiLabel";
-import { Formik } from "formik";
+import { UiForm } from "@components/ui/UiForm";
 import { notification } from "antd";
 import { validationSchemaLogin } from "@helpers/validators";
 import { loginLoad } from "@actions";
-
-const formInitialValues = { email: "", password: "" };
 
 export function Login() {
 	const dispatch = useDispatch();
 	const auth = useSelector((state) => state.auth.isAuth);
 	const authError = useSelector((state) => state.auth.error);
 	const history = useHistory();
+
+	const handleSingIn = useCallback(
+		(values) => {
+			dispatch(loginLoad(values));
+		},
+		[dispatch]
+	);
 
 	useEffect(() => {
 		if (authError) {
@@ -33,13 +38,6 @@ export function Login() {
 		}
 	}, [auth, authError, history]);
 
-	const handleSingIn = useCallback(
-		(values) => {
-			dispatch(loginLoad(values));
-		},
-		[dispatch]
-	);
-
 	return (
 		<div className='login-page'>
 			<h1 className='text-h1'>Welcome</h1>
@@ -50,9 +48,7 @@ export function Login() {
 				</Link>
 			</h2>
 			<UiContainer className='ui-container mt20'>
-				<Formik
-					initialValues={formInitialValues}
-					validateOnBlur
+				<UiForm
 					onSubmit={handleSingIn}
 					validationSchema={validationSchemaLogin}>
 					{({
@@ -98,7 +94,7 @@ export function Login() {
 							</UiButton>
 						</>
 					)}
-				</Formik>
+				</UiForm>
 			</UiContainer>
 		</div>
 	);
