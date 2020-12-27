@@ -1,24 +1,23 @@
 import React, { useCallback, useEffect } from "react";
 import "./Login.css";
-import { Link, Redirect } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { UiButton } from "@components/ui/UiButton";
-import { UiInput } from "@components/ui/UiInput";
+import { UiButton, UiButtonCircle } from "@components/ui/UiButton";
+import { UiField } from "@components/ui/UiField";
+import { UiInput, UiInputError } from "@components/ui/UiInput";
 import { UiInputPassword } from "@components/ui/UiInputPassword";
 import { UiContainer } from "@components/ui/UiContainer";
 import { UiLabel } from "@components/ui/UiLabel";
-import { Formik } from "formik";
-import { RightCircleFilled } from "@ant-design/icons";
+import { UiForm } from "@components/ui/UiForm";
+import { notification } from "antd";
 import { validationSchemaLogin } from "@helpers/validators";
 import { loginLoad } from "@actions";
-
-const formInitialValues = { email: "", password: "" };
 
 export function Login() {
 	const dispatch = useDispatch();
 	const auth = useSelector((state) => state.auth.isAuth);
-
-	useEffect(() => {}, [auth]);
+	const authError = useSelector((state) => state.auth.error);
+	const history = useHistory();
 
 	const handleSingIn = useCallback(
 		(values) => {
@@ -27,9 +26,18 @@ export function Login() {
 		[dispatch]
 	);
 
-	if (auth) {
-		return <Redirect to='/' />;
-	}
+	useEffect(() => {
+		if (authError) {
+			notification.error({
+				message: "Error",
+				description: "Incorrect login or password",
+			});
+		}
+		if (auth) {
+			history.push("/");
+		}
+	}, [auth, authError, history]);
+
 	return (
 		<div className='login-page'>
 			<h1 className='text-h1'>Welcome</h1>
@@ -40,9 +48,7 @@ export function Login() {
 				</Link>
 			</h2>
 			<UiContainer className='ui-container mt20'>
-				<Formik
-					initialValues={formInitialValues}
-					validateOnBlur
+				<UiForm
 					onSubmit={handleSingIn}
 					validationSchema={validationSchemaLogin}>
 					{({
@@ -54,8 +60,8 @@ export function Login() {
 						handleSubmit,
 					}) => (
 						<>
-							<UiLabel className='pt40'>
-								Email
+							<UiField className='login-page__field pt40'>
+								<UiLabel>Email</UiLabel>
 								<UiInput
 									name='email'
 									onChange={handleChange}
@@ -64,12 +70,12 @@ export function Login() {
 									placeholder='email@email.com'
 									className='input-large pl-hold'
 								/>
-							</UiLabel>
+							</UiField>
 							{touched.email && errors.email && (
-								<p className='errors'>{errors.email}</p>
+								<UiInputError>{errors.email}</UiInputError>
 							)}
-							<UiLabel className='pt15'>
-								Password
+							<UiField className='login-page__field pt15'>
+								<UiLabel>Password</UiLabel>
 								<UiInputPassword
 									name='password'
 									onChange={handleChange}
@@ -78,19 +84,17 @@ export function Login() {
 									placeholder='password'
 									className='input-large pl-hold'
 								/>
-							</UiLabel>
+							</UiField>
 							{touched.password && errors.password && (
-								<p className='errors'>{errors.password}</p>
+								<UiInputError>{errors.password}</UiInputError>
 							)}
-							<UiButton className='m40' onClick={handleSubmit}>
+							<UiButton variant='default' onClick={handleSubmit}>
 								Login
-								<RightCircleFilled
-									style={{ color: "#FFFFFF", fontSize: "32px" }}
-								/>
+								<UiButtonCircle />
 							</UiButton>
 						</>
 					)}
-				</Formik>
+				</UiForm>
 			</UiContainer>
 		</div>
 	);

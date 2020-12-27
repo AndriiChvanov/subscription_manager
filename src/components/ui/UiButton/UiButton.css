@@ -1,5 +1,10 @@
-.ant-btn {
-	min-width: 223.75px;
+.ui-button {
+	margin: 40px 0 45px 45px;
+}
+.ui-button.ant-btn {
+	display: flex;
+	justify-content: center;
+	min-width: 224px;
 	min-height: 57px;
 	background-color: #c8c8c8;
 	border-radius: 18px;
@@ -11,11 +16,45 @@
 	line-height: 34px;
 	letter-spacing: 0.27;
 }
-.ant-btn:hover {
+.ui-button.ant-btn > span {
+	margin-left: -20px;
+	align-items: center;
+}
+.ui-button.ant-btn:hover {
 	background-color: #3380fe;
 	color: #fff;
 }
-.anticon {
-	position: relative;
-	float: right;
+.ui-button.ant-btn > .anticon + span,
+.ui-button.ant-btn > span + .anticon {
+	position: absolute;
+	margin-left: 155px;
+}
+
+.ui-button__secondary {
+	margin: 40px 0 45px 45px;
+}
+.ui-button__secondary.ant-btn {
+	text-align: center;
+	align-items: center;
+	min-width: 175px;
+	min-height: 38.09px;
+	background-color: #fff;
+	border-radius: 25px;
+	border-color: #3380fe;
+	font-family: "Arial", sans-serif;
+	color: #3380fe;
+	font-size: 14px;
+	line-height: 28px;
+	letter-spacing: 0.27;
+	margin: 100px;
+	margin-top: 90px;
+}
+.ui-button__secondary.ant-btn:hover {
+	background-color: #3380fe;
+	color: #fff;
+}
+.ui-button__secondary.ant-btn > .anticon + span,
+.ui-button__secondary.ant-btn > span + .anticon {
+	position: absolute;
+	margin-left: 155px;
 }

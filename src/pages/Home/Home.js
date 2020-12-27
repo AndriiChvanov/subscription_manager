@@ -11,9 +11,6 @@ export function Home() {
 				<Link to='/login' className='App-link'>
 					Go to the Login page
 				</Link>
-				<Link to='/guideline' className='App-link'>
-					Go to the Guideline page
-				</Link>
 				<Link to='/signup' className='App-link'>
 					Go to the SignUp page
 				</Link>

@@ -1,24 +1,21 @@
 import React, { useCallback, useEffect } from "react";
 import "./SignUp.css";
-import { Link, Redirect } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { UiButton } from "@components/ui/UiButton";
-import { UiInput } from "@components/ui/UiInput";
+import { UiButton, UiButtonCircle } from "@components/ui/UiButton";
+import { UiField } from "@components/ui/UiField";
+import { UiInput, UiInputError } from "@components/ui/UiInput";
 import { UiInputPassword } from "@components/ui/UiInputPassword";
 import { UiContainer } from "@components/ui/UiContainer";
 import { UiLabel } from "@components/ui/UiLabel";
-import { Formik } from "formik";
-import { RightCircleFilled } from "@ant-design/icons";
+import { UiForm } from "@components/ui/UiForm";
 import { validationSchemaSignUp } from "@helpers/validators";
 import { signUpLoad } from "@actions";
-
-const formInitialValues = { email: "", password: "", repeat_password: "" };
 
 export function SignUp() {
 	const dispatch = useDispatch();
 	const auth = useSelector((state) => state.auth.isAuth);
-
-	useEffect(() => {}, [auth]);
+	const history = useHistory();
 
 	const handleSingUp = useCallback(
 		(values) => {
@@ -26,9 +23,13 @@ export function SignUp() {
 		},
 		[dispatch]
 	);
-	if (auth) {
-		return <Redirect to='/' />;
-	}
+
+	useEffect(() => {
+		if (auth) {
+			history.push("/");
+		}
+	}, [auth, history]);
+
 	return (
 		<div className='signup-page'>
 			<h1 className='text-h1'>Welcome</h1>
@@ -39,9 +40,7 @@ export function SignUp() {
 				</Link>
 			</h2>
 			<UiContainer className='ui-container mt20'>
-				<Formik
-					initialValues={formInitialValues}
-					validateOnBlur
+				<UiForm
 					onSubmit={handleSingUp}
 					validationSchema={validationSchemaSignUp}>
 					{({
@@ -53,8 +52,8 @@ export function SignUp() {
 						handleSubmit,
 					}) => (
 						<>
-							<UiLabel className='pt40'>
-								Email
+							<UiField className='signup-page__field pt40'>
+								<UiLabel>Email</UiLabel>
 								<UiInput
 									name='email'
 									onChange={handleChange}
@@ -63,12 +62,12 @@ export function SignUp() {
 									placeholder='email@email.com'
 									className='input-large pl-hold'
 								/>
-							</UiLabel>
+							</UiField>
 							{touched.email && errors.email && (
-								<p className='errors'>{errors.email}</p>
+								<UiInputError>{errors.email}</UiInputError>
 							)}
-							<UiLabel className='pt15'>
-								Password
+							<UiField className='signup-page__field pt15'>
+								<UiLabel>Password</UiLabel>
 								<UiInputPassword
 									name='password'
 									onChange={handleChange}
@@ -77,12 +76,12 @@ export function SignUp() {
 									placeholder='password'
 									className='input-large pl-hold'
 								/>
-							</UiLabel>
+							</UiField>
 							{touched.password && errors.password && (
-								<p className='errors'>{errors.password}</p>
+								<UiInputError>{errors.password}</UiInputError>
 							)}
-							<UiLabel className='pt15'>
-								Repeat password
+							<UiField className='signup-page__field pt15'>
+								<UiLabel>Repeat password</UiLabel>
 								<UiInputPassword
 									name='repeat_password'
 									onChange={handleChange}
@@ -91,19 +90,16 @@ export function SignUp() {
 									placeholder='repeat password'
 									className='input-large pl-hold'
 								/>
-							</UiLabel>
+							</UiField>
 							{touched.repeat_password && errors.repeat_password && (
-								<p className='errors'>{errors.repeat_password}</p>
+								<UiInputError>{errors.repeat_password}</UiInputError>
 							)}
-							<UiButton className='m40' onClick={handleSubmit}>
-								Sign Up
-								<RightCircleFilled
-									style={{ color: "#FFFFFF", fontSize: "32px" }}
-								/>
+							<UiButton variant='default' onClick={handleSubmit}>
+								Sign Up <UiButtonCircle />
 							</UiButton>
 						</>
 					)}
-				</Formik>
+				</UiForm>
 			</UiContainer>
 		</div>
 	);

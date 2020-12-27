@@ -7,12 +7,16 @@ import {
 	SIGN_UP_SUCCESS,
 	SIGN_UP_ERROR,
 	userLoad,
+	RESET_ERROR,
+	RESET_LOAD,
+	RESET_SUCCESS,
 } from "@actions";
 import {
 	firebaseLogin,
 	firebaseSignUp,
 	firebaseGetToken,
 	firebaseCurrentUser,
+	firebaseResetPassword,
 } from "@services";
 
 export function* watchSignUp() {
@@ -44,5 +48,18 @@ function* workerLogin(action) {
 		yield put(userLoad(user));
 	} catch (e) {
 		yield put({ type: LOGIN_ERROR });
+	}
+}
+
+export function* watchResetPassword() {
+	yield takeEvery(RESET_LOAD, workerResetPassword);
+}
+
+function* workerResetPassword(action) {
+	try {
+		yield call(firebaseResetPassword, action.payload.email);
+		yield put({ type: RESET_SUCCESS });
+	} catch (e) {
+		yield put({ type: RESET_ERROR });
 	}
 }

@@ -2,8 +2,7 @@ import firebase from "firebase";
 
 export const firebaseCurrentUser = async () => {
 	try {
-		const user = firebase.auth().currentUser.providerData;
-		console.log(user);
+		const user = await firebase.auth().currentUser.providerData;
 		return user;
 	} catch (error) {
 		throw error;

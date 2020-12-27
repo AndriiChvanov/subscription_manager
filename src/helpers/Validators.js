@@ -24,4 +24,19 @@ const validationSchemaSignUp = yup.object().shape({
 		.oneOf([yup.ref("password")], "This password does not match")
 		.required("This password does not match"),
 });
-export { validationSchemaLogin, validationSchemaSignUp };
+const validationSchemaReset = yup.object().shape({
+	email: yup.string().email().required("Please Enter your Email"),
+});
+const validationSchemaAddSubscritpion = yup.object().shape({
+	name: yup.string().required("Please Enter Name Subscription"),
+	amount: yup.string().required("Please Enter Amount"),
+	nextpayment: yup.string().required("Please Enter Next Payment"),
+	duedate: yup.string(),
+	billingcycle: yup.string().required("Please Enter select Billing Cycle"),
+});
+export {
+	validationSchemaLogin,
+	validationSchemaSignUp,
+	validationSchemaReset,
+	validationSchemaAddSubscritpion,
+};
