@@ -14,7 +14,7 @@ export function UiDatePicker(props) {
 
 	return (
 		<DatePicker
-			defaultValue={moment("2020-01-01", dateFormat)}
+			defaultValue={moment("2021-01-01", dateFormat)}
 			format={dateFormat}
 			onChange={(date, dateString) => defaultOnChange(dateString)}
 			{...props}

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useHistory } from "react-router-dom";
-import "./AddSubcsriptions.css";
+import "./AddSubscriptions.css";
+import { useDispatch, useSelector } from "react-redux";
 import { UiButton, UiButtonCircle } from "@components/ui/UiButton";
 import { UiInput, UiInputError } from "@components/ui/UiInput";
 import { UiCurrencyInput } from "@components/ui/UiCurrencyInput";
@@ -14,25 +15,39 @@ import { UiForm } from "@components/ui/UiForm";
 import { LeftOutlined } from "@ant-design/icons";
 import { periods } from "@constants";
 import { validationSchemaAddSubscritpion } from "@helpers/validators";
+import { subAdd } from "@actions";
 
-export function AddSubcsriptions() {
+export function AddSubscriptions() {
+	const dispatch = useDispatch();
 	const history = useHistory();
 
-	const handleSingUp = (values) => {
-		console.log(values);
-	};
+	const subTypes = useSelector((state) => state.subscriptions.sub_types);
+
+	const handleSingUp = useCallback(
+		({ name, startDate, period, price, dueDate, appType }) => {
+			dispatch(subAdd({ name, startDate, period, price, dueDate, appType }));
+			history.push("/subscriptions");
+		},
+		[dispatch, history]
+	);
 	const handelClick = () => {
+		dispatch({ type: "SUB_LOAD" });
 		history.push("/subscriptions");
 	};
 
 	return (
-		<div className='add-subcsriptions'>
-			<div className='add-subcsription__title'>
-				<LeftOutlined onClick={handelClick} />
-				<div className='add-subcsription__text'>Add Subscription</div>
+		<div className='add-subscriptions'>
+			<div className='add-subscription__title subc__title'>
+				<LeftOutlined
+					onClick={handelClick}
+					className='add-subscriptions__icons'
+				/>
+				<div className='add-subscription__text subc__text'>
+					Add Subscription
+				</div>
 			</div>
-			<div className='add-subcsriptions__desc'>
-				<p className='add-subcsription__p'>
+			<div className='add-subscriptions__desc subc__desc'>
+				<p className='add-subscription__p subc__p'>
 					Enter the details of a service you are subscribed to so we can help
 					you track and manage it.
 				</p>
@@ -64,42 +79,54 @@ export function AddSubcsriptions() {
 									<UiInputError>{errors.name}</UiInputError>
 								)}
 								<UiField className='add-scubscription__field pt15'>
+									<UiLabel>App Type</UiLabel>
+									<UiSelect
+										name='appType'
+										onBlur={handleBlur}
+										selected={subTypes}
+										defaultValue={subTypes[0].publicName}
+									/>
+								</UiField>
+								{touched.appType && errors.appType && (
+									<UiInputError>{errors.appType}</UiInputError>
+								)}
+								<UiField className='add-scubscription__field pt15'>
 									<UiLabel>Amount</UiLabel>
 									<UiCurrencyInput
 										className='ant-input input-large pl-hold'
 										placeholder='$0.00'
 										type='text'
-										name='amount'
+										name='price'
 										onChange={handleChange}
 									/>
 								</UiField>
-								{touched.amount && errors.amount && (
-									<UiInputError>{errors.amount}</UiInputError>
+								{touched.price && errors.price && (
+									<UiInputError>{errors.price}</UiInputError>
 								)}
 								<UiDisplay className='df spase-between'>
 									<UiField className='pt15'>
 										<UiLabel>Next Payment</UiLabel>
-										<UiDatePicker name='nextpayment' />
+										<UiDatePicker name='startDate' />
 									</UiField>
 									<UiField className='pt15 ml20'>
 										<UiLabel>Due Date</UiLabel>
-										<UiDatePicker name='duedate' />
+										<UiDatePicker name='dueDate' />
 									</UiField>
 								</UiDisplay>
-								{touched.nextpayment && errors.nextpayment && (
-									<UiInputError>{errors.nextpayment}</UiInputError>
+								{touched.startDate && errors.startDate && (
+									<UiInputError>{errors.startDate}</UiInputError>
 								)}
 								<UiField className='add-scubscription__field pt15'>
 									<UiLabel>Billing Cycle</UiLabel>
 									<UiSelect
-										name='billingcycle'
+										name='period'
 										onBlur={handleBlur}
 										selected={periods}
-										defaultValue={periods[0].name}
+										defaultValue={periods[0].publicName}
 									/>
 								</UiField>
-								{touched.billingcycle && errors.billingcycle && (
-									<UiInputError>{errors.billingcycle}</UiInputError>
+								{touched.period && errors.period && (
+									<UiInputError>{errors.period}</UiInputError>
 								)}
 								<UiButton variant='default' onClick={handleSubmit}>
 									Continue

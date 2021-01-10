@@ -15,13 +15,15 @@ import { loginLoad } from "@actions";
 
 export function Login() {
 	const dispatch = useDispatch();
-	const auth = useSelector((state) => state.auth.isAuth);
-	const authError = useSelector((state) => state.auth.error);
 	const history = useHistory();
 
+	const auth = useSelector((state) => state.auth.isAuth);
+	const authError = useSelector((state) => state.auth.error);
+
 	const handleSingIn = useCallback(
-		(values) => {
-			dispatch(loginLoad(values));
+		({ email, password }) => {
+			dispatch(loginLoad({ email, password }));
+			dispatch({ type: "SUB_LOAD" });
 		},
 		[dispatch]
 	);
@@ -34,9 +36,9 @@ export function Login() {
 			});
 		}
 		if (auth) {
-			history.push("/");
+			history.push("/subscriptions");
 		}
-	}, [auth, authError, history]);
+	}, [auth, authError, dispatch, history]);
 
 	return (
 		<div className='login-page'>

@@ -4,6 +4,9 @@ const initialState = {
 	sub_add: "",
 	sub_update: "",
 	sub_delete: "",
+	sub_id: "",
+	sub_types: "",
+	sub_load: false,
 	success: false,
 	error: false,
 };
@@ -43,6 +46,25 @@ const subscriptions = (state = initialState, action) => {
 			return {
 				...state,
 				success: true,
+			};
+		case "SUB_LOAD":
+			return {
+				...state,
+				sub_load: true,
+			};
+		case "SUB_GET_LOAD":
+			return {
+				...state,
+				sub_id: action.payload,
+			};
+		case "SUB_TYPES_LOAD":
+			return {
+				...state,
+			};
+		case "SUB_GET_TYPES":
+			return {
+				...state,
+				sub_types: action.payload,
 			};
 		default:
 			return state;

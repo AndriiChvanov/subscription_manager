@@ -1,9 +1,9 @@
-function setToken(res) {
+function setToken(req) {
 	const token = localStorage.getItem("token");
-	res.headers["Authorization"] = token;
-	return res;
+	req.headers["Authorization"] = token;
+	return req;
 }
 
 export default function (axios) {
-	axios.interceptors.response.use(setToken);
+	axios.interceptors.request.use(setToken);
 }

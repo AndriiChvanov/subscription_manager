@@ -6,7 +6,7 @@ import "./UiCurrencyInput.css";
 const defaultMaskOptions = {
 	prefix: "$",
 	suffix: "",
-	includeThousandsSeparator: true,
+	includeThousandsSeparator: false,
 	thousandsSeparatorSymbol: ",",
 	allowDecimal: true,
 	decimalSymbol: ".",

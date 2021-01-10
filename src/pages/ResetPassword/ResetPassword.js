@@ -14,12 +14,13 @@ import { ressetPass } from "@helpers/rulse";
 
 export function ResetPassword() {
 	const dispatch = useDispatch();
-	const auth = useSelector((state) => state.auth.isResetPass);
 	const history = useHistory();
 
+	const auth = useSelector((state) => state.auth.isResetPass);
+
 	const handleResetPassword = useCallback(
-		(values) => {
-			dispatch(resetLoad(values));
+		({ email }) => {
+			dispatch(resetLoad({ email }));
 		},
 		[dispatch]
 	);

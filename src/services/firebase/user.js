@@ -2,8 +2,16 @@ import firebase from "firebase";
 
 export const firebaseCurrentUser = async () => {
 	try {
-		const user = await firebase.auth().currentUser.providerData;
-		return user;
+		const user = await firebase.auth().currentUser;
+		const userInfo = {
+			name: user.displayName,
+			email: user.email,
+			photoUrl: user.photoURL,
+			emailVerified: user.emailVerified,
+			uid: user.uid,
+		};
+		localStorage.setItem("uid", userInfo.uid);
+		return userInfo;
 	} catch (error) {
 		throw error;
 	}
@@ -15,7 +23,7 @@ export const firebaseGetToken = async () => {
 			.auth()
 			.currentUser.getIdToken(true)
 			.then((idToken) => {
-				localStorage.setItem("token", idToken);
+				localStorage.setItem("token", `Bearer ${idToken}`);
 			});
 		return data;
 	} catch (error) {

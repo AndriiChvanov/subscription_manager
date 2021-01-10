@@ -1,12 +1,12 @@
-.subcsriptions {
+.subscriptions {
 	background: #ebeff6;
 	min-width: 375px;
 	min-height: 810px;
 }
-.subcsription__container{
+.subscription__container {
 	margin: 0 26px;
 }
-.subcsription__title {
+.subscription__title {
 	display: flex;
 	justify-content: space-between;
 	padding-top: 50px;
@@ -18,6 +18,16 @@
 	border-radius: 2em;
 	border: none;
 }
-.add-icons{
+.add-icons {
 	margin-top: -8px;
+}
+.ui-display {
+	display: flex;
+	justify-content: space-between;
+}
+.subscription__content {
+	padding-top: 30px;
+}
+.subscriptions__slider{	
+	max-width: 340px;
 }

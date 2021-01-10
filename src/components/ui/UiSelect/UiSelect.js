@@ -13,8 +13,8 @@ export function UiSelect(props) {
 	return (
 		<Select {...props} onChange={defaultOnChange}>
 			{selected.map((item) => (
-				<Select.Option key={item.value} value={item.value}>
-					{item.name}
+				<Select.Option key={item.name} value={item.name}>
+					{item.publicName}
 				</Select.Option>
 			))}
 		</Select>

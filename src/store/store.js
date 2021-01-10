@@ -7,7 +7,7 @@ import { watchSignUp, watchLogin, watchResetPassword } from "@sagas/auth/auth";
 import {
 	watchSubAdd,
 	watchSubGet,
-	watchSubDelete,
+	watchSubTypes,
 	watchSubGetAll,
 	watchSubUpdate,
 } from "@sagas/subscriptions/subscriptions";
@@ -20,7 +20,7 @@ sagaMiddleware.run(watchLogin);
 sagaMiddleware.run(watchResetPassword);
 
 sagaMiddleware.run(watchSubAdd);
-sagaMiddleware.run(watchSubDelete);
+sagaMiddleware.run(watchSubTypes);
 sagaMiddleware.run(watchSubGet);
 sagaMiddleware.run(watchSubGetAll);
 sagaMiddleware.run(watchSubUpdate);

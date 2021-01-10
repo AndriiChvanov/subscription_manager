@@ -1,6 +1,6 @@
 export const periods = [
-	{ value: "month", name: "Every 1 Month(s)" },
-	{ value: "3 month", name: "Every 3 Month(s)" },
-	{ value: "6 month", name: "Every 6 Month(s)" },
-	{ value: "year", name: "Every 1 Year" },
+	{ name: "month", publicName: "Every 1 Month(s)" },
+	{ name: "3 month", publicName: "Every 3 Month(s)" },
+	{ name: "6 month", publicName: "Every 6 Month(s)" },
+	{ name: "year", publicName: "Every 1 Year" },
 ];

@@ -11,24 +11,34 @@ import { UiLabel } from "@components/ui/UiLabel";
 import { UiForm } from "@components/ui/UiForm";
 import { validationSchemaSignUp } from "@helpers/validators";
 import { signUpLoad } from "@actions";
+import { notification } from "antd";
 
 export function SignUp() {
 	const dispatch = useDispatch();
-	const auth = useSelector((state) => state.auth.isAuth);
 	const history = useHistory();
 
+	const auth = useSelector((state) => state.auth.isAuth);
+	const authError = useSelector((state) => state.auth.error);
+
 	const handleSingUp = useCallback(
-		(values) => {
-			dispatch(signUpLoad(values));
+		({ email, password }) => {
+			dispatch(signUpLoad({ email, password }));
 		},
 		[dispatch]
 	);
 
 	useEffect(() => {
-		if (auth) {
-			history.push("/");
+		if (authError) {
+			notification.error({
+				message: "Error",
+				description: "Incorrect email or password",
+			});
 		}
-	}, [auth, history]);
+		if (auth) {
+			dispatch({ type: "SUB_LOAD" });
+			history.push("/subscriptions");
+		}
+	}, [auth, authError, dispatch, history]);
 
 	return (
 		<div className='signup-page'>
