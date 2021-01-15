@@ -30,8 +30,8 @@ const validationSchemaReset = yup.object().shape({
 const validationSchemaAddSubscritpion = yup.object().shape({
 	name: yup.string().required("Please Enter Name Subscription"),
 	price: yup.string().required("Please Enter Amount"),
-	startDate: yup.string().required("Please Enter Next Payment"),
 	duedate: yup.string(),
+	startDate: yup.string().required("Please Enter Next Payment"),
 	period: yup.string().required("Please Enter select Billing Cycle"),
 });
 export {

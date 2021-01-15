@@ -1,1 +1,1 @@
-export { UiDatePicker }from './UiDatePicker';
+export { UiDatePicker,UiDatePickerUpdate }from './UiDatePicker';
