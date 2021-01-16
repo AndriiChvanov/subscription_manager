@@ -1,1 +1,1 @@
-export { UiCurrencyInput } from './UiCurrencyInput';
+export { UiCurrencyInput } from "./UiCurrencyInput";

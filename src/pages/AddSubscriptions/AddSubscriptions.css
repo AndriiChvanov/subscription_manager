@@ -1,11 +1,11 @@
 .add-subscriptions {
-	background-image: url("../../assets/images/background.png");
-	background-repeat: no-repeat;
-	object-fit: contain;
+  background-image: url("../../assets/images/background.png");
+  background-repeat: no-repeat;
+  object-fit: contain;
 }
 .anticon.anticon-left.add-subscriptions__icons {
-	margin-left: -90px;
-	margin-top: 7px;
-	font-size: 14px;
-	color: #fff;
+  margin-left: -90px;
+  margin-top: 7px;
+  font-size: 14px;
+  color: #fff;
 }

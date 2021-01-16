@@ -1,33 +1,33 @@
 .subscriptions {
-	background: #ebeff6;
-	min-width: 375px;
-	min-height: 810px;
+  background: #ebeff6;
+  min-width: 375px;
+  min-height: 810px;
 }
 .subscription__container {
-	margin: 0 26px;
+  margin: 0 26px;
 }
 .subscription__title {
-	display: flex;
-	justify-content: space-between;
-	padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 50px;
 }
 .anticon.anticon-plus-circle {
-	color: #fff;
-	font-size: 30px;
-	background: #77869e;
-	border-radius: 2em;
-	border: none;
+  color: #fff;
+  font-size: 30px;
+  background: #77869e;
+  border-radius: 2em;
+  border: none;
 }
 .add-icons {
-	margin-top: -8px;
+  margin-top: -8px;
 }
 .ui-display {
-	display: flex;
-	justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 .subscription__content {
-	padding-top: 30px;
+  padding-top: 30px;
 }
-.subscriptions__slider{	
-	max-width: 340px;
+.subscriptions__slider {
+  max-width: 340px;
 }

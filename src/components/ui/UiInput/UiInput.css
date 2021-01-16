@@ -1,65 +1,65 @@
 .input-large {
-	background-color: #ebedf0;
-	border: none;
-	max-width: 309px;
-	min-height: 50.37px;
-	border-radius: 18px;
-	padding-left: 28px;
+  background-color: #ebedf0;
+  border: none;
+  max-width: 309px;
+  min-height: 50.37px;
+  border-radius: 18px;
+  padding-left: 28px;
 }
 .input-small {
-	background-color: #ebedf0;
-	border: none;
-	min-width: 143px;
-	min-height: 50.37px;
-	border-radius: 18px;
-	padding-left: 28px;
+  background-color: #ebedf0;
+  border: none;
+  min-width: 143px;
+  min-height: 50.37px;
+  border-radius: 18px;
+  padding-left: 28px;
 }
 .pl-hold::placeholder {
-	font-family: "Arial", sans-serif;
-	font-size: 14px;
-	line-height: 34px;
-	letter-spacing: 0.47;
-	text-align: left;
-	color: #77869e;
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  line-height: 34px;
+  letter-spacing: 0.47;
+  text-align: left;
+  color: #77869e;
 }
 .errors {
-	color: red;
-	margin-top: 10px;
+  color: red;
+  margin-top: 10px;
 }
 .ant-input {
-	background-color: #ebedf0;
-	border: none;
-	font-family: "Arial", sans-serif;
-	font-size: 14px;
-	line-height: 34px;
-	letter-spacing: 0.47;
-	text-align: left;
-	color: #77869e;
+  background-color: #ebedf0;
+  border: none;
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  line-height: 34px;
+  letter-spacing: 0.47;
+  text-align: left;
+  color: #77869e;
 }
 .ant-input::placeholder {
-	font-family: "Arial", sans-serif;
-	font-size: 14px;
-	line-height: 34px;
-	letter-spacing: 0.47;
-	text-align: left;
-	color: #77869e;
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  line-height: 34px;
+  letter-spacing: 0.47;
+  text-align: left;
+  color: #77869e;
 }
 .ui-input__error {
-	color: red;
-	padding-top: 10px;
+  color: red;
+  padding-top: 10px;
 }
 .ant-picker {
-	background-color: #ebedf0;
-	border: none;
-	min-width: 143px;
-	min-height: 50.37px;
-	border-radius: 18px;
-	padding-left: 28px;
+  background-color: #ebedf0;
+  border: none;
+  min-width: 143px;
+  min-height: 50.37px;
+  border-radius: 18px;
+  padding-left: 28px;
 }
 .ant-picker-input > input {
-	font-family: "Arial", sans-serif;
-	font-size: 14px;
-	line-height: 34px;
-	letter-spacing: 0.47;
-	color: #77869e;
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  line-height: 34px;
+  letter-spacing: 0.47;
+  color: #77869e;
 }

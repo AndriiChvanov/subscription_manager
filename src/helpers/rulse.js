@@ -1,6 +1,6 @@
 export const ressetPass = [
-	{
-		required: true,
-		message: "Please input your email!",
-	},
+  {
+    required: true,
+    message: "Please input your email!",
+  },
 ];
