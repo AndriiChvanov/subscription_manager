@@ -1,70 +1,72 @@
 const initialState = {
-  sub_all: "",
-  sub_info: "",
-  sub_add: "",
-  sub_update: "",
-  sub_delete: "",
-  sub_id: "",
-  sub_types: "",
-  sub_load: false,
+  subscriptions_all: "",
+  subscription_info: "",
+  subscription_add: "",
+  subscription_update: "",
+  subscription_delete: "",
+  subscription_id: "",
+  subscription_types: "",
+  subscription_load: false,
   success: false,
   error: false,
 };
 const subscriptions = (state = initialState, action) => {
   switch (action.type) {
-    case "SUB_ADD":
+    case "ADD_SUBSCRIPTION":
       return {
         ...state,
-        sub_add: action.payload,
+        subscription_add: action.payload,
       };
-    case "SUB_UPDATE":
+    case "UPDATE_SUBSCRIPTION":
       return {
         ...state,
-        sub_update: action.payload,
+        subscription_update: action.payload,
       };
-    case "SUB_GET":
+    case "GET_SUBSCRIPTION":
       return {
         ...state,
-        sub_info: action.payload,
+        subscription_info: action.payload,
       };
-    case "SUB_GET_ALL":
+    case "GET_ALL_SUBSCRIPTION":
       return {
         ...state,
-        sub_all: action.payload,
+        subscriptions_all: action.payload,
       };
-    case "SUB_DELETE":
+    case "DELETE_SUBSCRIPTION":
       return {
         ...state,
-        sub_delete: action.payload,
+        subscription_delete: action.payload,
       };
-    case "SUB_ERROR":
+    case "SUBSCRIPTION_ERROR":
       return {
         ...state,
         error: true,
       };
-    case "SUB_SUCCESS":
+    case "SUBSCRIPTION_SUCCESS":
       return {
         ...state,
         success: true,
       };
-    case "SUB_LOAD":
+    case "LOAD_SUBSCRIPTION":
       return {
         ...state,
-        sub_load: true,
+        subscription_load: true,
+        subscription_id: action.payload,
       };
-    case "SUB_GET_LOAD":
+    case "LOAD_ALL_SUBSCRIPTION":
       return {
         ...state,
-        sub_id: action.payload,
+        subscription_load: true,
       };
-    case "SUB_TYPES_LOAD":
+    case "LOAD_SUBSCRIPTION_TYPES":
       return {
         ...state,
+        subscription_load: true,
       };
-    case "SUB_GET_TYPES":
+    case "GET_SUBSCRIPTION_TYPES":
       return {
         ...state,
-        sub_types: action.payload,
+        subscription_types: action.payload,
       };
     default:
       return state;

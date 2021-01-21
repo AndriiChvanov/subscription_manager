@@ -1,6 +1,6 @@
 import axios from "@plugins/axios";
 
-export const addSubcription = async ({
+export const addSubscriptionService = async ({
   name,
   startDate,
   period,
@@ -13,12 +13,12 @@ export const addSubcription = async ({
       name: name,
       appType: appType,
       description: "2",
-      startDate: Date.parse(startDate),
+      startDate: startDate,
       period: period,
       userId: localStorage.getItem("uid"),
       price: price.slice(1),
       currency: "USD",
-      dueDate: Date.parse(dueDate),
+      dueDate: dueDate,
     };
     const data = await axios.post("/subscriptions", res);
     return data;
@@ -26,7 +26,7 @@ export const addSubcription = async ({
     throw error;
   }
 };
-export const updateSubscription = async ({
+export const updateSubscriptionService = async ({
   name,
   startDate,
   period,
@@ -40,12 +40,12 @@ export const updateSubscription = async ({
       appType: appType,
       name: name,
       description: "update",
-      startDate: Date.parse(startDate),
+      startDate: startDate,
       period: period,
       userId: localStorage.getItem("uid"),
       price: price.slice(1),
       currency: "USD",
-      dueDate: Date.parse(dueDate),
+      dueDate: dueDate,
     };
     const data = await axios.patch(`/subscriptions/${id}`, res);
     return data;
@@ -53,7 +53,7 @@ export const updateSubscription = async ({
     throw error;
   }
 };
-export const getAllSubscription = async () => {
+export const getAllSubscriptionsService = async () => {
   try {
     const data = await axios.get(`/subscriptions`);
     return data;
@@ -61,7 +61,7 @@ export const getAllSubscription = async () => {
     throw error;
   }
 };
-export const getSubscription = async (id) => {
+export const getSubscriptionService = async (id) => {
   try {
     const data = await axios.get(`/subscriptions/${id}`);
     return data;
@@ -69,7 +69,7 @@ export const getSubscription = async (id) => {
     throw error;
   }
 };
-export const getTypesSubscription = async () => {
+export const getSubscriptionTypesService = async () => {
   try {
     const data = await axios.get(`/types/application-types`);
     return data;

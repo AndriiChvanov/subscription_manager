@@ -23,7 +23,7 @@ export function Login() {
   const handleSingIn = useCallback(
     ({ email, password }) => {
       dispatch(loginLoad({ email, password }));
-      dispatch({ type: "SUB_LOAD" });
+      dispatch({ type: "LOAD_ALL_SUBSCRIPTION" });
     },
     [dispatch]
   );

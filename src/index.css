@@ -80,21 +80,19 @@ code {
   color: "#FFFFFF";
   font-size: "32px";
 }
-.subc__title {
+.subscription__title {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   padding-top: 48px;
 }
-.subc__text {
-  margin-left: 70px;
+.subscription__text {
+  margin: 0 auto;
   font-size: 20px;
   line-height: 28px;
   letter-spacing: 0.39;
   color: #fff;
-  align-items: center;
-  text-align: center;
 }
-.subc__p {
+.subscription__p {
   margin: 25px 40px;
   font-size: 14px;
   line-height: 20px;

@@ -4,46 +4,48 @@ import { useHistory } from "react-router-dom";
 import { LeftOutlined, MoreOutlined } from "@ant-design/icons";
 import { UiContainer } from "@components/ui/UiContainer";
 import { useSelector, useDispatch } from "react-redux";
-import netflix from "@icons/NetflixInf.png";
+import { UiLogo } from "@components/ui/UiLogo";
 
 export function SubscriptionInfo() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const { name, nextPaymentDate, appType } = useSelector(
-    (state) => state.subscriptions.sub_info
+  const { name, icon, nextPaymentDate, appType } = useSelector(
+    (state) => state.subscriptions.subscription_info
   );
 
-  const handlerUpdate = useCallback(() => {
-    dispatch({ type: "SUB_TYPES_LOAD" });
-    history.push("/upd-subscriptions");
+  const handlerEditSubscription = useCallback(() => {
+    dispatch({ type: "LOAD_SUBSCRIPTION_TYPES" });
+    history.push("/edit-subscription");
   }, [dispatch, history]);
 
-  const handlerSubscr = () => {
+  const handlerLoadSubscription = () => {
     history.push("/subscriptions");
   };
 
   useEffect(() => {
-    dispatch({ type: "SUB_TYPES_LOAD" });
+    dispatch({ type: "LOAD_SUBSCRIPTION_TYPES" });
   }, [dispatch, history]);
 
   return (
     <div className="subscription-info">
-      <div className="subscription-info__btn subc__title">
+      <div className="subscription-info__btn subscription__title">
         <LeftOutlined
-          onClick={handlerSubscr}
+          onClick={handlerLoadSubscription}
           className="subscription-info__icons"
         />
-        <MoreOutlined onClick={handlerUpdate} />
+        <MoreOutlined onClick={handlerEditSubscription} />
       </div>
       <div className="subscription-info__info">
-        <img src={netflix} alt="logo" />
-        <div className="subscription-info__title subc__text">{name}</div>
-        <div className="subscription-info__type subc__p">{appType}</div>
+        <UiLogo icon={icon} name={name} size="large" />
+        <div className="subscription-info__title subscription__text">
+          {name}
+        </div>
+        <div className="subscription-info__type subscription__p">{appType}</div>
         <div className="subscription-info__payment">{nextPaymentDate}</div>
       </div>
       <div className="subscription-info__desc">
-        <UiContainer></UiContainer>
+        <UiContainer />
       </div>
     </div>
   );

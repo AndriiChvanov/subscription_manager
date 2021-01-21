@@ -5,11 +5,11 @@ import reducer from "@reducers";
 
 import { watchSignUp, watchLogin, watchResetPassword } from "@sagas/auth/auth";
 import {
-  watchSubAdd,
-  watchSubGet,
-  watchSubTypes,
-  watchSubGetAll,
-  watchSubUpdate,
+  watchAddSubscription,
+  watchGetAllSubscriptions,
+  watchGetSubscriptionTypes,
+  watchGetSubscription,
+  watchUpdateSubscription,
 } from "@sagas/subscriptions/subscriptions";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -19,10 +19,10 @@ sagaMiddleware.run(watchSignUp);
 sagaMiddleware.run(watchLogin);
 sagaMiddleware.run(watchResetPassword);
 
-sagaMiddleware.run(watchSubAdd);
-sagaMiddleware.run(watchSubTypes);
-sagaMiddleware.run(watchSubGet);
-sagaMiddleware.run(watchSubGetAll);
-sagaMiddleware.run(watchSubUpdate);
+sagaMiddleware.run(watchAddSubscription);
+sagaMiddleware.run(watchGetSubscriptionTypes);
+sagaMiddleware.run(watchGetAllSubscriptions);
+sagaMiddleware.run(watchGetSubscription);
+sagaMiddleware.run(watchUpdateSubscription);
 
 export default store;

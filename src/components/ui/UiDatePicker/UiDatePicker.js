@@ -10,7 +10,7 @@ export function UiDatePicker(props) {
   const [field, meta, helpers] = useField(props.name);
 
   const defaultOnChange = (dateString) => {
-    helpers.setValue(dateString);
+    helpers.setValue(Date.parse(dateString));
   };
 
   return (
@@ -31,7 +31,7 @@ export function UiDatePickerUpdate(props) {
   const defaultOnChange = (dateString) => {
     helpers.setValue(dateString);
   };
-  console.log(dateFormatedPicker(dateUpdate));
+
   return (
     <DatePicker
       defaultValue={moment(dateFormatedPicker(dateUpdate), dateFormat)}

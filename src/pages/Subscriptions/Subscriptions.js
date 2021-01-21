@@ -3,9 +3,9 @@ import { useHistory } from "react-router-dom";
 import { UiContainer } from "@components/ui/UiContainer";
 import { AddIcon } from "@icons/addIcon";
 import { UiTitle, UiText } from "@components/ui/UiTextDecoration";
-import { UiDaysLeft } from "@components/ui/UiDaysLeft";
+import { UpcomingList } from "@components/UpcomingList";
 import { UiDisplay } from "@components/ui/UiDisplay";
-import { UiItem } from "@components/ui/UiItem";
+import { SubscriptionList } from "@components/SubscriptionList";
 import { useSelector, useDispatch } from "react-redux";
 import "./Subscriptions.css";
 
@@ -13,16 +13,19 @@ export function Subscriptions() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const allSubscription = useSelector((state) => state.subscriptions.sub_all);
+  const allSubscriptions = useSelector(
+    (state) => state.subscriptions.subscriptions_all
+  );
 
-  const handelClick = useCallback(() => {
-    dispatch({ type: "SUB_TYPES_LOAD" });
-    history.push("/add-subscriptions");
+  const handleAddSubscription = useCallback(() => {
+    dispatch({ type: "LOAD_SUBSCRIPTION_TYPES" });
+    dispatch({ type: "LOAD_ALL_SUBSCRIPTION" });
+    history.push("/add-subscription");
   }, [dispatch, history]);
 
   useEffect(() => {
-    dispatch({ type: "SUB_LOAD" });
-    dispatch({ type: "SUB_TYPES_LOAD" });
+    dispatch({ type: "LOAD_ALL_SUBSCRIPTION" });
+    dispatch({ type: "LOAD_SUBSCRIPTION_TYPES" });
   }, [dispatch, history]);
 
   return (
@@ -30,23 +33,31 @@ export function Subscriptions() {
       <UiContainer className="subscription__container">
         <div className="subscription__title">
           <UiTitle>Subscription</UiTitle>
-          <AddIcon onClick={handelClick} />
+          <AddIcon onClick={handleAddSubscription} />
         </div>
         <div className="subscriptions__desc">
           <UiText>Upcoming</UiText>
         </div>
         <UiDisplay>
           <div className="subscriptions__slider">
-            <UiDaysLeft items={allSubscription} />
+            {allSubscriptions.length ? (
+              <UpcomingList subscriptions={allSubscriptions} />
+            ) : (
+              <div>You don't have subscriptions</div>
+            )}
           </div>
         </UiDisplay>
       </UiContainer>
       <UiContainer>
         <div className="subscription__content">
-          <UiTitle>All Subscription</UiTitle>
+          <UiTitle>All Subscriptions</UiTitle>
         </div>
         <div className="subscription__items">
-          <UiItem items={allSubscription}></UiItem>
+          {allSubscriptions.length ? (
+            <SubscriptionList subscriptions={allSubscriptions} />
+          ) : (
+            <div>You don't have subscriptions</div>
+          )}
         </div>
       </UiContainer>
     </div>

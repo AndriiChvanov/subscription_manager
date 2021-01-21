@@ -1,60 +1,60 @@
 import { takeEvery, call, put } from "redux-saga/effects";
 import {
-  SUB_UPDATE,
-  SUB_ADD,
-  SUB_GET_LOAD,
-  SUB_TYPES_LOAD,
-  SUB_ERROR,
-  SUB_LOAD,
-  SUB_SUCCESS,
-  subGetAll,
-  subGet,
-  subGetTypes,
+  UPDATE_SUBSCRIPTION,
+  ADD_SUBSCRIPTION,
+  SUBSCRIPTION_SUCCESS,
+  SUBSCRIPTION_ERROR,
+  LOAD_SUBSCRIPTION,
+  LOAD_ALL_SUBSCRIPTION,
+  LOAD_SUBSCRIPTION_TYPES,
+  getAllSubscriptions,
+  getSubscription,
+  getSubscriptionTypes,
 } from "@actions";
 import {
-  addSubcription,
-  getSubscription,
-  getAllSubscription,
-  updateSubscription,
-  getTypesSubscription,
+  addSubscriptionService,
+  getSubscriptionService,
+  getAllSubscriptionsService,
+  updateSubscriptionService,
+  getSubscriptionTypesService,
 } from "@services";
 import { dateFormated } from "@helpers/dateTimeFormated";
 
-export function* watchSubAdd() {
-  yield takeEvery(SUB_ADD, workerSubAdd);
+export function* watchAddSubscription() {
+  yield takeEvery(ADD_SUBSCRIPTION, workerAddSubscription);
 }
 
-function* workerSubAdd(action) {
+function* workerAddSubscription(action) {
   try {
-    yield call(addSubcription, action.payload);
-    yield put({ type: SUB_LOAD });
-    yield put({ type: SUB_SUCCESS });
+    yield call(addSubscriptionService, action.payload);
+    yield put({ type: LOAD_SUBSCRIPTION });
+    yield put({ type: SUBSCRIPTION_SUCCESS });
   } catch (e) {
-    yield put({ type: SUB_ERROR });
+    yield put({ type: SUBSCRIPTION_ERROR });
   }
 }
 
-export function* watchSubGetAll() {
-  yield takeEvery(SUB_LOAD, workerSubGetAll);
+export function* watchGetAllSubscriptions() {
+  yield takeEvery(LOAD_ALL_SUBSCRIPTION, workerGetAllSubscriptions);
 }
 
-function* workerSubGetAll() {
+function* workerGetAllSubscriptions() {
   try {
-    const { data } = yield call(getAllSubscription);
-    yield put(subGetAll(data));
-    yield put({ type: SUB_SUCCESS });
+    const { data } = yield call(getAllSubscriptionsService);
+    yield put(getAllSubscriptions(data));
+    yield put({ type: SUBSCRIPTION_SUCCESS });
   } catch (e) {
-    yield put({ type: SUB_ERROR });
+    yield put({ type: SUBSCRIPTION_ERROR });
   }
 }
 
-export function* watchSubGet() {
-  yield takeEvery(SUB_GET_LOAD, workerSubGet);
+export function* watchGetSubscription() {
+  yield takeEvery(LOAD_SUBSCRIPTION, workerGetSubscription);
 }
 
-function* workerSubGet(action) {
+function* workerGetSubscription(action) {
   try {
-    const { data } = yield call(getSubscription, action.payload);
+    const { data } = yield call(getSubscriptionService, action.payload);
     const {
       appType,
       currency,
@@ -70,7 +70,7 @@ function* workerSubGet(action) {
       userId,
     } = data;
     yield put(
-      subGet({
+      getSubscription({
         appType,
         currency,
         description,
@@ -85,34 +85,34 @@ function* workerSubGet(action) {
         userId,
       })
     );
-    yield put({ type: SUB_SUCCESS });
+    yield put({ type: SUBSCRIPTION_SUCCESS });
   } catch (e) {
-    yield put({ type: SUB_ERROR });
+    yield put({ type: SUBSCRIPTION_ERROR });
   }
 }
 
-export function* watchSubUpdate() {
-  yield takeEvery(SUB_UPDATE, workerSubUpdate);
+export function* watchUpdateSubscription() {
+  yield takeEvery(UPDATE_SUBSCRIPTION, workerUpdateSubscription);
 }
 
-function* workerSubUpdate(action) {
+function* workerUpdateSubscription(action) {
   try {
-    yield call(updateSubscription, action.payload);
-    yield put({ type: SUB_SUCCESS });
+    yield call(updateSubscriptionService, action.payload);
+    yield put({ type: SUBSCRIPTION_SUCCESS });
   } catch (e) {
-    yield put({ type: SUB_ERROR });
+    yield put({ type: SUBSCRIPTION_ERROR });
   }
 }
-export function* watchSubTypes() {
-  yield takeEvery(SUB_TYPES_LOAD, workerSubTypes);
+export function* watchGetSubscriptionTypes() {
+  yield takeEvery(LOAD_SUBSCRIPTION_TYPES, workerGetSubscriptionTypes);
 }
 
-function* workerSubTypes() {
+function* workerGetSubscriptionTypes() {
   try {
-    const { data } = yield call(getTypesSubscription);
-    yield put(subGetTypes(data));
-    yield put({ type: SUB_SUCCESS });
+    const { data } = yield call(getSubscriptionTypesService);
+    yield put(getSubscriptionTypes(data));
+    yield put({ type: SUBSCRIPTION_SUCCESS });
   } catch (e) {
-    yield put({ type: SUB_ERROR });
+    yield put({ type: SUBSCRIPTION_ERROR });
   }
 }

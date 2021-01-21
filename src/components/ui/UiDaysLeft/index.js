@@ -1,1 +1,0 @@
-export { UiDaysLeft } from "./UiDaysLeft";

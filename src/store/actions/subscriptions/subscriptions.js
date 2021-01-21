@@ -1,74 +1,75 @@
-export const SUB_UPDATE = "SUB_UPDATE";
-export const SUB_ADD = "SUB_ADD";
-export const SUB_GET = "SUB_GET";
-export const SUB_GET_ALL = "SUB_GET_ALL";
-export const SUB_DELETE = "SUB_DELETE";
-export const SUB_ERROR = "SUB_SUCCESS";
-export const SUB_SUCCESS = "SUB_SUCCESS";
-export const SUB_LOAD = "SUB_LOAD";
-export const SUB_GET_LOAD = "SUB_GET_LOAD";
-export const SUB_TYPES_LOAD = "SUB_TYPES_LOAD";
-export const SUB_GET_TYPES = "SUB_GET_TYPES";
+export const UPDATE_SUBSCRIPTION = "UPDATE_SUBSCRIPTION";
+export const ADD_SUBSCRIPTION = "ADD_SUBSCRIPTION";
+export const GET_SUBSCRIPTION = "GET_SUBSCRIPTION";
+export const GET_ALL_SUBSCRIPTION = "GET_ALL_SUBSCRIPTION";
+export const DELETE_SUBSCRIPTION = "DELETE_SUBSCRIPTION";
+export const SUBSCRIPTION_ERROR = "SUBSCRIPTION_ERROR";
+export const SUBSCRIPTION_SUCCESS = "SUBSCRIPTION_SUCCESS";
+export const LOAD_SUBSCRIPTION = "LOAD_SUBSCRIPTION";
+export const LOAD_ALL_SUBSCRIPTION = "LOAD_ALL_SUBSCRIPTION";
+export const LOAD_SUBSCRIPTION_TYPES = "LOAD_SUBSCRIPTION_TYPES";
+export const GET_SUBSCRIPTION_TYPES = "GET_SUBSCRIPTION_TYPES";
 
-export const subError = () => {
+export const errorSubscription = () => {
   return {
-    type: SUB_ERROR,
+    type: SUBSCRIPTION_ERROR,
   };
 };
-export const subSuccess = () => {
+export const successSubscription = () => {
   return {
-    type: SUB_SUCCESS,
+    type: SUBSCRIPTION_SUCCESS,
   };
 };
-export const subUpdate = (value) => {
+export const editSubscription = (value) => {
   return {
-    type: SUB_UPDATE,
+    type: UPDATE_SUBSCRIPTION,
     payload: value,
   };
 };
-export const subGetAll = (value) => {
+export const getAllSubscriptions = (value) => {
   return {
-    type: SUB_GET_ALL,
+    type: GET_ALL_SUBSCRIPTION,
     payload: value,
   };
 };
-export const subGet = (value) => {
+export const getSubscription = (value) => {
   return {
-    type: SUB_GET,
+    type: GET_SUBSCRIPTION,
     payload: value,
   };
 };
-export const subAdd = (value) => {
+export const addSubscription = (value) => {
   return {
-    type: SUB_ADD,
+    type: ADD_SUBSCRIPTION,
     payload: value,
   };
 };
-export const subDelete = (id) => {
+export const deleteSubscription = (id) => {
   return {
-    type: SUB_DELETE,
+    type: DELETE_SUBSCRIPTION,
     payload: id,
   };
 };
-export const subLoad = () => {
+export const loadSubscription = (id) => {
   return {
-    type: SUB_LOAD,
-  };
-};
-export const subGetLoad = (id) => {
-  return {
-    type: SUB_GET_LOAD,
+    type: LOAD_SUBSCRIPTION,
     payload: id,
   };
 };
-export const subTypesLoad = () => {
+export const loadAllSubscription = (id) => {
   return {
-    type: SUB_TYPES_LOAD,
+    type: LOAD_ALL_SUBSCRIPTION,
+    payload: id,
   };
 };
-export const subGetTypes = (value) => {
+export const loadSubscriptionTypes = () => {
   return {
-    type: SUB_GET_TYPES,
+    type: LOAD_SUBSCRIPTION_TYPES,
+  };
+};
+export const getSubscriptionTypes = (value) => {
+  return {
+    type: GET_SUBSCRIPTION_TYPES,
     payload: value,
   };
 };

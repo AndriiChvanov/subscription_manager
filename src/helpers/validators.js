@@ -27,7 +27,7 @@ const validationSchemaSignUp = yup.object().shape({
 const validationSchemaReset = yup.object().shape({
   email: yup.string().email().required("Please Enter your Email"),
 });
-const validationSchemaAddSubscritpion = yup.object().shape({
+const validationSchemaSubscriptionForm = yup.object().shape({
   name: yup.string().required("Please Enter Name Subscription"),
   price: yup.string().required("Please Enter Amount"),
   startDate: yup.string().required("Please Enter Next Payment"),
@@ -38,5 +38,5 @@ export {
   validationSchemaLogin,
   validationSchemaSignUp,
   validationSchemaReset,
-  validationSchemaAddSubscritpion,
+  validationSchemaSubscriptionForm,
 };
