@@ -10,6 +10,8 @@ const AddSubscription = lazy(() => import("@pages/AddSubscription"));
 const Subscriptions = lazy(() => import("@pages/Subscriptions"));
 const UpdateSubscription = lazy(() => import("@pages/UpdateSubscription"));
 const SubscriptionInfo = lazy(() => import("@pages/SubscriptionInfo"));
+const Profile = lazy(() => import("@pages/Profile"));
+const Overview = lazy(() => import("@pages/Overview"));
 
 export function RouterView() {
   return (
@@ -29,6 +31,8 @@ export function RouterView() {
             component={UpdateSubscription}
           />
           <Route exact path="/subscription-info" component={SubscriptionInfo} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/overview" component={Overview} />
         </Switch>
       </Suspense>
     </Router>

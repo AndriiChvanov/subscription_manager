@@ -10,4 +10,6 @@ export {
   getAllSubscriptionsService,
   getSubscriptionService,
   getSubscriptionTypesService,
+  postProlongationPayment,
+  getOverviewService,
 } from "./subscription/subcription";

@@ -1,1 +1,6 @@
-export { UiTitle, UiText } from "./UiTextDecoration";
+export {
+  UiTitle,
+  UiText,
+  UiProfileFormTitle,
+  UiProfileFormText,
+} from "./UiTextDecoration";

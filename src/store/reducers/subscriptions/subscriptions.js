@@ -7,6 +7,7 @@ const initialState = {
   subscription_id: "",
   subscription_types: "",
   subscription_load: false,
+  prolongation_info: "",
   success: false,
   error: false,
 };
@@ -67,6 +68,16 @@ const subscriptions = (state = initialState, action) => {
       return {
         ...state,
         subscription_types: action.payload,
+      };
+    case "POST_PROLONGATION_PAYMENT":
+      return {
+        ...state,
+        prolongation_info: action.payload,
+      };
+    case "ERROR_PROLONGATION_PAYMENT":
+      return {
+        ...state,
+        error: true,
       };
     default:
       return state;

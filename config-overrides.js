@@ -13,6 +13,7 @@ module.exports = function override(config) {
     "@sagas": "src/store/sagas",
     "@reducers": "src/store/reducers",
     "@constants": "src/constants",
+    "@settings": "src/settings",
   })(config);
 
   return config;

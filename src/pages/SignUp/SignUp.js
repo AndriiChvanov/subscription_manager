@@ -36,6 +36,7 @@ export function SignUp() {
     }
     if (auth) {
       dispatch({ type: "LOAD_ALL_SUBSCRIPTION" });
+      dispatch({ type: "LOAD_OVERVIEW" });
       history.push("/subscriptions");
     }
   }, [auth, authError, dispatch, history]);

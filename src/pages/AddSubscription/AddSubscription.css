@@ -4,8 +4,15 @@
   object-fit: contain;
 }
 .anticon.anticon-left.add-subscription__icons {
-  margin-left: 20px;
   margin-top: 7px;
   font-size: 14px;
   color: #fff;
+}
+.add-subscription__title {
+  padding-left: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+.add-subscription__text.subscription__text {
+  margin-left: 80px;
 }

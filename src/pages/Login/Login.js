@@ -24,6 +24,7 @@ export function Login() {
     ({ email, password }) => {
       dispatch(loginLoad({ email, password }));
       dispatch({ type: "LOAD_ALL_SUBSCRIPTION" });
+      dispatch({ type: "LOAD_OVERVIEW" });
     },
     [dispatch]
   );
@@ -36,6 +37,8 @@ export function Login() {
       });
     }
     if (auth) {
+      dispatch({ type: "LOAD_ALL_SUBSCRIPTION" });
+      dispatch({ type: "LOAD_OVERVIEW" });
       history.push("/subscriptions");
     }
   }, [auth, authError, dispatch, history]);

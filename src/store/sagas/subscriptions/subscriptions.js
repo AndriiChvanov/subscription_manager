@@ -10,6 +10,8 @@ import {
   getAllSubscriptions,
   getSubscription,
   getSubscriptionTypes,
+  POST_PROLONGATION_PAYMENT,
+  ERROR_PROLONGATION_PAYMENT,
 } from "@actions";
 import {
   addSubscriptionService,
@@ -17,6 +19,7 @@ import {
   getAllSubscriptionsService,
   updateSubscriptionService,
   getSubscriptionTypesService,
+  postProlongationPayment,
 } from "@services";
 import { dateFormated } from "@helpers/dateTimeFormated";
 
@@ -114,5 +117,18 @@ function* workerGetSubscriptionTypes() {
     yield put({ type: SUBSCRIPTION_SUCCESS });
   } catch (e) {
     yield put({ type: SUBSCRIPTION_ERROR });
+  }
+}
+
+export function* watchPostProlongationPayment() {
+  yield takeEvery(POST_PROLONGATION_PAYMENT, workerPostProlongationPayment);
+}
+
+function* workerPostProlongationPayment(action) {
+  try {
+    yield call(postProlongationPayment, action.payload);
+    yield put({ type: SUBSCRIPTION_SUCCESS });
+  } catch (e) {
+    yield put({ type: ERROR_PROLONGATION_PAYMENT });
   }
 }

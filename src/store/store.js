@@ -10,7 +10,9 @@ import {
   watchGetSubscriptionTypes,
   watchGetSubscription,
   watchUpdateSubscription,
+  watchPostProlongationPayment,
 } from "@sagas/subscriptions/subscriptions";
+import { watchGetOverview } from "@sagas/overview/overview";
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(reducer, applyMiddleware(logger, sagaMiddleware));
@@ -22,7 +24,10 @@ sagaMiddleware.run(watchResetPassword);
 sagaMiddleware.run(watchAddSubscription);
 sagaMiddleware.run(watchGetSubscriptionTypes);
 sagaMiddleware.run(watchGetAllSubscriptions);
-sagaMiddleware.run(watchGetSubscription);
 sagaMiddleware.run(watchUpdateSubscription);
+sagaMiddleware.run(watchGetSubscription);
+sagaMiddleware.run(watchPostProlongationPayment);
+
+sagaMiddleware.run(watchGetOverview);
 
 export default store;

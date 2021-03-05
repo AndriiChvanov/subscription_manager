@@ -8,6 +8,7 @@ import { UiDisplay } from "@components/ui/UiDisplay";
 import { SubscriptionList } from "@components/SubscriptionList";
 import { useSelector, useDispatch } from "react-redux";
 import "./Subscriptions.css";
+import { Menu } from "@components/Menu";
 
 export function Subscriptions() {
   const dispatch = useDispatch();
@@ -26,8 +27,7 @@ export function Subscriptions() {
   useEffect(() => {
     dispatch({ type: "LOAD_ALL_SUBSCRIPTION" });
     dispatch({ type: "LOAD_SUBSCRIPTION_TYPES" });
-  }, [dispatch, history]);
-
+  }, []);
   return (
     <div className="subscriptions">
       <UiContainer className="subscription__container">
@@ -60,6 +60,7 @@ export function Subscriptions() {
           )}
         </div>
       </UiContainer>
+      <Menu />
     </div>
   );
 }

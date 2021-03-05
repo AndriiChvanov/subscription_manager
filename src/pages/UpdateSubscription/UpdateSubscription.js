@@ -1,12 +1,12 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import "./UpdateSubscription.css";
 import { useDispatch, useSelector } from "react-redux";
 import { LeftOutlined } from "@ant-design/icons";
-import { validationSchemaSubscriptionForm } from "@helpers/validators";
 import { editSubscription } from "@actions";
 import { SubscriptionForm } from "@components/SubscriptionForm";
 import { periods } from "@constants";
+import { validationSchemaSubscriptionForm } from "@helpers/validators";
 
 export function UpdateSubscription() {
   const dispatch = useDispatch();
@@ -32,7 +32,8 @@ export function UpdateSubscription() {
           appType,
         })
       );
-      dispatch({ type: "LOAD_SUBSCRIPTION" });
+      dispatch({ type: "UPDATE_SUBSCRIPTION" });
+      dispatch({ type: "LOAD_ALL_SUBSCRIPTION" });
       history.push("/subscriptions");
     },
     [dispatch, history, id]
@@ -65,8 +66,8 @@ export function UpdateSubscription() {
           price={price}
           dueDate={dueDate}
           appType={appType}
-          onSubmitForm={handleEditSubscription}
           validationSchema={validationSchemaSubscriptionForm}
+          onSubmitForm={handleEditSubscription}
           subscriptionTypes={subscriptionTypes}
           period={period}
           periods={periods}

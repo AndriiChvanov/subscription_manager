@@ -1,1 +1,1 @@
-export { UiButton, UiButtonCircle } from "./UiButton";
+export { UiButton, UiButtonCircle, UiButtonProfileChange } from "./UiButton";

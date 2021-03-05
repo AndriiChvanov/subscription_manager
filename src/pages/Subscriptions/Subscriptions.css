@@ -1,7 +1,7 @@
 .subscriptions {
   background: #ebeff6;
   min-width: 375px;
-  min-height: 810px;
+  max-height: 812px;
 }
 .subscription__container {
   margin: 0 26px;

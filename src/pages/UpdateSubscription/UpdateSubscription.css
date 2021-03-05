@@ -9,3 +9,6 @@
   font-size: 14px;
   color: #fff;
 }
+.update-subscription__text.subscription__text {
+  margin-left: 60px;
+}

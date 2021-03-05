@@ -47,6 +47,7 @@ export const updateSubscriptionService = async ({
       currency: "USD",
       dueDate: dueDate,
     };
+
     const data = await axios.patch(`/subscriptions/${id}`, res);
     return data;
   } catch (error) {
@@ -72,6 +73,28 @@ export const getSubscriptionService = async (id) => {
 export const getSubscriptionTypesService = async () => {
   try {
     const data = await axios.get(`/types/application-types`);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const postProlongationPayment = async (id) => {
+  try {
+    const res = {
+      userId: localStorage.getItem("uid"),
+      subscriptionId: id,
+    };
+    const data = await axios.post(`/payments/add-payment/${id}`, res);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+export const getOverviewService = async () => {
+  try {
+    const userId = localStorage.getItem("uid");
+    const data = await axios.get(`/overview/${userId}`);
     return data;
   } catch (error) {
     throw error;

@@ -26,7 +26,7 @@ export function AddSubscription() {
     [dispatch, history]
   );
   const handleLoadSubscriptions = () => {
-    dispatch({ type: "LOAD_SUBSCRIPTION" });
+    dispatch({ type: "LOAD_ALL_SUBSCRIPTION" });
     history.push("/subscriptions");
   };
 

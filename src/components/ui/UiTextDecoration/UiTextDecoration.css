@@ -5,10 +5,22 @@
 .ui-title {
   font-size: 26px;
   list-style: 31px;
-  letter-spacing: -0.98;
+  letter-spacing: -0.98px;
 }
 .ui-text {
   font-size: 20px;
   list-style: 28px;
-  letter-spacing: 0.39;
+  letter-spacing: 0.39px;
+}
+.ui-profile-title {
+  font-size: 14px;
+  line-height: 34px;
+  letter-spacing: 0.27px;
+  color: #77869e;
+}
+.ui-profile-text {
+  font-size: 14px;
+  line-height: 34px;
+  letter-spacing: 0.27px;
+  color: #042c5c;
 }

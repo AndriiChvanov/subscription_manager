@@ -15,3 +15,17 @@ export function UiText(props) {
     </div>
   );
 }
+export function UiProfileFormTitle(props) {
+  return (
+    <div className="ui-profile-title text-font" {...props}>
+      {props.children}
+    </div>
+  );
+}
+export function UiProfileFormText(props) {
+  return (
+    <div className="ui-profile-text text-font" {...props}>
+      {props.children}
+    </div>
+  );
+}
