@@ -1,0 +1,12 @@
+.upcoming-progressbar__text {
+  margin-left: 5px;
+  margin-top: 10px;
+  list-style: 17px;
+  letter-spacing: -0.7px;
+}
+.upcoming-progressbar {
+  margin-top: 10px;
+  width: 30px;
+  list-style: 12px;
+  letter-spacing: -0.5px;
+}

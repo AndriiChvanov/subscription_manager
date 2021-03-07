@@ -1,0 +1,23 @@
+.subscription-item__container {
+  display: flex;
+  margin-top: 23px;
+}
+.subscription-item__img {
+  max-width: 43px;
+  max-height: 43px;
+  object-fit: contain;
+}
+.subscription-item__info {
+  margin-left: 12px;
+}
+.subscription-item__price {
+  margin-top: 5px;
+  margin-left: auto;
+}
+.subscription-item__date {
+  margin-top: 5px;
+}
+.subscription-item__border {
+  margin-top: 11px;
+  border-bottom: 1px solid #e8f0fd;
+}

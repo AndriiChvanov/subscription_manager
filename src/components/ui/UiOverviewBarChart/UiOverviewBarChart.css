@@ -1,0 +1,10 @@
+.bar-chart__close {
+  padding-top: 35px;
+  width: 181px;
+  height: 100px;
+}
+.bar-chart__open {
+  padding-top: 50px;
+  width: 320px;
+  height: 200px;
+}

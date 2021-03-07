@@ -1,0 +1,12 @@
+.menu {
+  width: 329px;
+  height: 60px;
+  border-radius: 29px;
+  background-color: #365280;
+  position: fixed;
+  right: 23px;
+  left: 23px;
+  top: 90%;
+  display: flex;
+  justify-content: space-between;
+}
