@@ -1,13 +1,124 @@
 body {
+  height: 100vh;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.text-h1 {
+  padding-top: 48px;
+  font-size: 25px;
+  line-height: 28px;
+  letter-spacing: 0.39;
+  color: #fff;
+  text-align: center;
+}
+.text-h2 {
+  margin-top: 25px;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0.27;
+  color: #fff;
+  text-align: center;
+}
+.text-link {
+  font-size: 18px;
+  line-height: 30px;
+  letter-spacing: 0.27;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+.text-type {
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.18;
+  color: #77869e;
+}
+.mt20 {
+  margin-top: 20px;
+}
+.pt30 {
+  padding-top: 30px;
+}
+.pt40 {
+  padding-top: 40px;
+}
+.pt15 {
+  padding-top: 15px;
+}
+.m40 {
+  margin: 40px;
+}
+.mt90 {
+  margin-top: 90px;
+}
+.ml-11 {
+  margin-left: -11px;
+}
+.ml5 {
+  margin-left: 5px;
+}
+.ml20 {
+  margin-left: 20px;
+}
+.mt130 {
+  margin-top: 130px;
+}
+.df {
+  display: flex;
+}
+.spase-between {
+  justify-content: space-between;
+}
+.imp {
+  color: "#FFFFFF";
+  font-size: "32px";
+}
+.subscription__title {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 48px;
+}
+.subscription__text {
+  margin: 0 auto;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0.39;
+  color: #fff;
+}
+.subscription__p {
+  margin: 25px 40px;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.27;
+  color: #fff;
+  text-align: center;
+}
+.subscription__h1 {
+  font-size: 34px;
+  line-height: 28px;
+  letter-spacing: 0.2;
+  color: #fff;
+  text-align: center;
+}
+.slick-list,
+.slick-track {
+  touch-action: none;
+}
+.menu-button {
+  cursor: pointer;
+}
+.menu-button svg:hover path {
+  fill: #fff;
+}
+.stroke__fff svg:hover use,
+.stroke__fff svg:hover path {
+  stroke: #fff;
 }

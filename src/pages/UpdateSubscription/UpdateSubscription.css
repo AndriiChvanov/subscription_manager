@@ -1,0 +1,14 @@
+.update-subscriptions {
+  background-image: url("../../assets/images/background.png");
+  background-repeat: no-repeat;
+  object-fit: contain;
+}
+.anticon.anticon-left.update-subscription__icons {
+  margin-left: 20px;
+  margin-top: 7px;
+  font-size: 14px;
+  color: #fff;
+}
+.update-subscription__text.subscription__text {
+  margin-left: 60px;
+}

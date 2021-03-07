@@ -1,0 +1,13 @@
+.label {
+  max-width: 143px;
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+  line-height: 34px;
+  letter-spacing: 0.27;
+  text-align: left;
+  color: #77869e;
+  padding-left: 11px;
+}
+.label__container {
+  width: 100%;
+}

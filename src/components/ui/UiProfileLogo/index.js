@@ -1,0 +1,1 @@
+export { UiProfileLogo } from "./UiProfileLogo";

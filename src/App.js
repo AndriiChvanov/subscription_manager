@@ -1,10 +1,8 @@
-import {RouterView} from "./router";
-import './App.css'
+import { RouterView } from "./router";
+import "./App.css";
 
 function App() {
-  return (
-      <RouterView/>
-  );
+  return <RouterView />;
 }
 
 export default App;

@@ -1,0 +1,85 @@
+.ui-button {
+  margin: 40px 0 45px 45px;
+}
+.ui-button.ant-btn {
+  display: flex;
+  justify-content: center;
+  min-width: 224px;
+  min-height: 57px;
+  background-color: #c8c8c8;
+  border-radius: 18px;
+  text-align: center;
+  align-items: center;
+  font-family: "Arial", sans-serif;
+  color: #fff;
+  font-size: 14px;
+  line-height: 34px;
+  letter-spacing: 0.27;
+}
+.ui-button.ant-btn > span {
+  margin-left: -20px;
+  align-items: center;
+}
+.ui-button.ant-btn:hover {
+  background-color: #3380fe;
+  color: #fff;
+}
+.ui-button.ant-btn > .anticon + span,
+.ui-button.ant-btn > span + .anticon {
+  position: absolute;
+  margin-left: 155px;
+}
+
+.ui-button__secondary {
+  margin: 40px 0 45px 45px;
+}
+.ui-button__secondary.ant-btn {
+  text-align: center;
+  align-items: center;
+  min-width: 175px;
+  min-height: 38.09px;
+  background-color: #fff;
+  border-radius: 25px;
+  border-color: #3380fe;
+  font-family: "Arial", sans-serif;
+  color: #3380fe;
+  font-size: 14px;
+  line-height: 28px;
+  letter-spacing: 0.27;
+  margin: 100px;
+  margin-top: 90px;
+}
+.ui-button__secondary.ant-btn:hover {
+  background-color: #3380fe;
+  color: #fff;
+}
+.ui-button__secondary.ant-btn > .anticon + span,
+.ui-button__secondary.ant-btn > span + .anticon {
+  position: absolute;
+  margin-left: 155px;
+}
+.button__profile-change {
+  display: flex;
+  align-items: center;
+  border: 3px solid white;
+  outline: none;
+  border-radius: 14px;
+  min-width: 104px;
+  min-height: 27px;
+  background-color: #ebedf0;
+}
+.ant-btn > span {
+  padding-left: 10px;
+  font-size: 14px;
+  line-height: 14px;
+  color: #fff;
+}
+.ant-btn.button__profile-change > span {
+  color: #77869e;
+}
+.ant-btn.ui-button__secondary > span {
+  padding-left: 10px;
+  font-size: 14px;
+  line-height: 14px;
+  color: #3380fe;
+}

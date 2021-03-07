@@ -1,0 +1,39 @@
+.overview-application__types {
+  margin-top: 20px;
+}
+.overview-application__round {
+  margin-top: 9px;
+  margin-right: 5px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+.entertainment {
+  background-color: #a9c8fb;
+}
+.productivity {
+  background-color: #f9a000;
+}
+.social {
+  background-color: #464b62;
+}
+.health {
+  background-color: #29c37d;
+}
+.others {
+  background-color: #ed0006;
+}
+.overview-application__item {
+  display: flex;
+  margin-top: 0;
+}
+.overview-application__sum {
+  margin-left: auto;
+  padding-left: 39px;
+}
+.overview__app-text {
+  font-size: 12px;
+  line-height: 28px;
+  letter-spacing: 0.24px;
+  color: #77869e;
+}

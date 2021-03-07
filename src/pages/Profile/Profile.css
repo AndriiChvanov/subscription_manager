@@ -1,0 +1,41 @@
+.profile {
+  background-image: url("../../assets/images/background.png");
+  background-repeat: no-repeat;
+  object-fit: contain;
+  min-width: 375px;
+  max-height: 812px;
+}
+.profile__title {
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.anticon.anticon-left.profile__icons {
+  margin-left: 20px;
+  margin-right: -30px;
+  margin-top: 7px;
+  font-size: 14px;
+  color: #fff;
+}
+.profile__logo {
+  position: relative;
+  margin: -40px auto -70px auto;
+  z-index: 10;
+}
+.profile__logo img {
+  margin: 0px auto;
+}
+.profile__logo button {
+  margin: -10px auto 0px auto;
+  z-index: 12;
+}
+.profile__container {
+  margin-top: 53px;
+  z-index: 2;
+}
+.profile__user {
+  padding-top: 130px;
+}
+.profile__user-info {
+  padding-top: 15px;
+}

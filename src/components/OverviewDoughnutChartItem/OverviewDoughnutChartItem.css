@@ -1,0 +1,29 @@
+.overview-doughnut__container {
+  padding-top: 25px;
+  margin-left: -30px;
+  padding-left: 30px;
+  min-width: 375px;
+  background: #ecf0f8;
+}
+.overview-doughnut__title {
+  display: flex;
+  justify-content: space-between;
+}
+.overview-doughnut__title h1 {
+  color: #042c5c;
+  padding: 0;
+  margin: 0;
+}
+.overview-doughnut__info {
+  display: flex;
+  justify-content: space-between;
+}
+.overview-doughnut__item {
+  max-width: 309px;
+  margin-top: 35px;
+  border-bottom: 1px solid #d1d5db;
+  min-height: 170px;
+}
+.overview-doughnut__item:last-child {
+  min-height: calc(170px + 100px);
+}
